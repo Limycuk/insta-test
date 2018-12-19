@@ -100,7 +100,7 @@ class App extends Component {
                   boxSizing: 'border-box'
                 }}>
                 Ник:{' '}
-                <a href={item.link} target="_blank">
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.nick}
                 </a>
                 <br />
