@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/insta-test/static/js/runtime~main.07e7666e.js"
   },
   {
-    "revision": "054cd490e50778d26f62",
-    "url": "/insta-test/static/js/main.054cd490.chunk.js"
+    "revision": "d916e92fbaad0f2ac6dd",
+    "url": "/insta-test/static/js/main.d916e92f.chunk.js"
   },
   {
     "revision": "27ed019165fc47f66a98",
     "url": "/insta-test/static/js/1.27ed0191.chunk.js"
   },
   {
-    "revision": "054cd490e50778d26f62",
+    "revision": "d916e92fbaad0f2ac6dd",
     "url": "/insta-test/static/css/main.8519d0e5.chunk.css"
   },
   {
-    "revision": "25d2285936c107e0c2530d7d82f6493c",
+    "revision": "db54bca069b4bd22c1876e745147e51c",
     "url": "/insta-test/index.html"
   }
 ];
