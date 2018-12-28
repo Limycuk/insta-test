@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import LazyLoad from 'react-lazyload';
+import React, { Component } from "react";
+import LazyLoad from "react-lazyload";
 
-import './App.css';
-import { tt } from './formattedResultsWithLikes';
+import "./App.css";
+import { tt } from "./withComments";
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class App extends Component {
       followers: tt,
       from: 0,
       to: 9999999999,
-      sort: ''
+      sort: ""
     };
 
     this.handleFrom = this.handleFrom.bind(this);
@@ -27,7 +27,7 @@ class App extends Component {
     }
 
     const followers = this.state.followers.filter(
-      (item) => item.followingCount >= value
+      item => item.edge_follow.count >= value
     );
 
     this.setState({ from: value, followers });
@@ -40,7 +40,7 @@ class App extends Component {
     }
 
     const followers = this.state.followers.filter(
-      (item) => item.followingCount <= value
+      item => item.edge_follow.count <= value
     );
 
     this.setState({ to: value, followers });
@@ -49,18 +49,22 @@ class App extends Component {
   handleChangeSort(event) {
     let value = event.target.value;
     let followers = this.state.followers;
-    console.log(value);
-    if (value === 'likes') {
+
+    if (value === "likes") {
       followers = followers.sort(function(a, b) {
         return b.likes - a.likes;
       });
-    } else if (value === 'up-following') {
+    } else if (value === "comments") {
       followers = followers.sort(function(a, b) {
-        return a.followingCount - b.followingCount;
+        return b.comments - a.comments;
       });
-    } else if (value === 'down-following') {
+    } else if (value === "up-following") {
       followers = followers.sort(function(a, b) {
-        return b.followingCount - a.followingCount;
+        return a.edge_follow.count - b.edge_follow.count;
+      });
+    } else if (value === "down-following") {
+      followers = followers.sort(function(a, b) {
+        return b.edge_follow.count - a.edge_follow.count;
       });
     }
 
@@ -69,19 +73,21 @@ class App extends Component {
 
   render() {
     const { followers, from, to, sort } = this.state;
-
     return (
       <div className="App">
-        <div style={{ height: 120 }}>
+        <div style={{ height: 150 }}>
           <p>
-            Показать подписчиком с following от{' '}
-            <input type="text" value={from} onChange={this.handleFrom} /> и до{' '}
+            Показать подписчиком с following от{" "}
+            <input type="text" value={from} onChange={this.handleFrom} /> и до{" "}
             <input type="text" value={to} onChange={this.handleTo} />
           </p>
           Сортировать по следующему критерию:
           <select value={sort} onChange={this.handleChangeSort}>
             <option value="" />
             <option value="likes">По убыванию лайков</option>
+            <option value="comments">
+              По убыванию количества комментариев
+            </option>
             <option value="up-following">По возрастанию following</option>
             <option value="down-following">По убыванию following</option>
           </select>
@@ -89,39 +95,91 @@ class App extends Component {
             Общее количество подписчиков: <b>{followers.length}</b>
           </p>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center"
+          }}
+        >
           {followers.map((item, index) => (
-            <LazyLoad height={150} key={index}>
+            <LazyLoad height={300} key={index}>
               <div
                 style={{
-                  height: 150,
-                  width: '25%',
-                  border: '1px solid grey',
-                  boxSizing: 'border-box'
-                }}>
-                Ник:{' '}
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                  {item.nick}
+                  height: 300,
+                  width: "25%",
+                  minWidth: 300,
+                  border: "1px solid grey",
+                  boxSizing: "border-box",
+                  paddingTop: 10
+                }}
+              >
+                <img
+                  src={item.profile_pic_url}
+                  style={{ maxWidth: 100, maxHeight: 100 }}
+                  alt={item.username}
+                />
+                <br />
+                Ник:{" "}
+                <a
+                  href={"https://www.instagram.com/" + item.username}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.username}
                 </a>
                 <br />
-                Имя: {item.name}
+                Имя: {item.full_name || "-"}
                 <br />
-                {item.postsText}
+                Количество постов: {item.mediaCounts}
+                <br />
+                {item.edge_follow ? (
+                  <span
+                    style={{
+                      color: item.edge_follow.count >= 1000 ? "red" : "green"
+                    }}
+                  >
+                    Количество following {item.edge_follow.count}
+                  </span>
+                ) : (
+                  <span>
+                    -{" "}
+                    {console.log(
+                      "item.edge_follow == ",
+                      item.edge_follow,
+                      item
+                    )}
+                  </span>
+                )}
+                <br />
+                {item.edge_followed_by ? (
+                  <span>
+                    Количество подписчиков {item.edge_followed_by.count}
+                  </span>
+                ) : (
+                  <span>
+                    -
+                    {console.log(
+                      "item.edge_followed_by == ",
+                      item.edge_followed_by
+                    )}
+                  </span>
+                )}
                 <br />
                 <span
                   style={{
-                    color: item.followingCount >= 1000 ? 'red' : 'green'
-                  }}>
-                  {item.followingText}
+                    color: item.likes < 1 ? "red" : "green"
+                  }}
+                >
+                  Поставили лайков: {item.likes}
                 </span>
                 <br />
-                {item.followersText}
-                <br />
                 <span
                   style={{
-                    color: item.likes < 1 ? 'red' : 'green'
-                  }}>
-                  Поставили лайков: {item.likes}
+                    color: item.comments < 1 ? "red" : "green"
+                  }}
+                >
+                  Написали комментариев: {item.comments}
                 </span>
               </div>
             </LazyLoad>
