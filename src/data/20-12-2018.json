@@ -1,4 +1,4 @@
-export const tt = [
+[
   {
     "edge_followed_by":{
       "count":1576
