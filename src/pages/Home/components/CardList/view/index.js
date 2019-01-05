@@ -8,13 +8,16 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 import data04012019 from '~/data/04-01-2019';
+// import data20122018 from '~/data/20-12-2018';
 
 import styles from './styles';
 
 const CardList = ({ classes }) => {
+  const data = data04012019;
   return (
     <div className={classes.container}>
-      {data04012019.map((item) => {
+      <span>{data.length}</span>
+      {data.map((item) => {
         return (
           <Card key={item.id} className={classes.card}>
             <a

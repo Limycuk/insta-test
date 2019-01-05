@@ -5,7 +5,7 @@ import Home from '~/pages/Home';
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Fragment>
         <Route exact path="/" component={Home} />
       </Fragment>
