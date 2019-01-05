@@ -1,8 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+
+import CardList from '../../CardList';
+
 const Home = () => {
-  return <div>test</div>;
+  return (
+    <div>
+      <AppBar position="static">
+        <Toolbar>
+          <div>Сайтик</div>
+        </Toolbar>
+      </AppBar>
+      <CardList />
+    </div>
+  );
 };
 
 export default Home;
