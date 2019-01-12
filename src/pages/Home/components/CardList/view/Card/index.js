@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+
+import { AsyncImage } from '~/packages/UI';
 
 import styles from './styles';
 
@@ -14,21 +14,20 @@ class CardItem extends PureComponent {
   render() {
     const { item, classes } = this.props;
 
+    const imageProps = {
+      src: item.profile_pic_url,
+      alt: item.username,
+      className: classes.avatar
+    };
+
     return (
       <Card className={classes.card}>
         <a
           href={'https://instagram.com/' + item.username}
           target="_blank"
-          rel="noopener noreferrer">
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              alt={item.username}
-              className={classes.media}
-              image={item.profile_pic_url}
-              title={item.username}
-            />
-          </CardActionArea>
+          rel="noopener noreferrer"
+          className={classes.link}>
+          <AsyncImage imageProps={imageProps} />
         </a>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

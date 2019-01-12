@@ -13,14 +13,18 @@ export default () => ({
     fontSize: 16,
     margin: '8px 0'
   },
-  media: {
-    maxHeight: 150,
-    maxWidth: 150,
-    margin: '0 auto'
+  link: {
+    display: 'block',
+    textAlign: 'center',
+    height: 150
   },
   name: {
     fontSize: 16,
     fontWeight: 600,
     margin: '0 0 12px'
+  },
+  avatar: {
+    maxWidth: 150,
+    maxHeight: 150
   }
 });

@@ -4,6 +4,8 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 import { withStyles } from '@material-ui/core/styles';
 
+import { ContextLoader } from '~/packages/UI';
+
 import styles from './styles';
 import Card from './Card';
 
@@ -15,7 +17,7 @@ const CardList = ({ classes, data, count, loadMore, hasMore }) => {
         pageStart={0}
         loadMore={loadMore}
         hasMore={hasMore}
-        loader={<div key={0}>Загрузка ...</div>}>
+        loader={<ContextLoader />}>
         <div className={classes.contentContainer}>
           {data.map((item) => {
             return <Card key={item.username} item={item} />;
