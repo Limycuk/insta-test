@@ -1,70 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import InfiniteScroll from 'react-infinite-scroller';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
-import data04012019 from '~/data/04-01-2019';
-// import data20122018 from '~/data/20-12-2018';
-
 import styles from './styles';
+import Card from './Card';
 
-const CardList = ({ classes }) => {
-  const data = data04012019;
+const CardList = ({ classes, data, count, loadMore, hasMore }) => {
   return (
     <div className={classes.container}>
-      <span>{data.length}</span>
-      {data.map((item) => {
-        return (
-          <Card key={item.id} className={classes.card}>
-            <a
-              href={'https://instagram.com/' + item.username}
-              target="_blank"
-              rel="noopener noreferrer">
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt={item.username}
-                  className={classes.media}
-                  image={item.profile_pic_url}
-                  title={item.username}
-                />
-              </CardActionArea>
-            </a>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {item.username}
-              </Typography>
-              <p className={classes.name}>{item.full_name || '-'}</p>
-              <ul className={classes.list}>
-                <li>
-                  <b>{item.mediaCounts}</b> posts
-                </li>
-                <li>
-                  <b>{item.edge_followed_by.count}</b> followers
-                </li>
-                <li>
-                  <b>{item.edge_follow.count}</b> following
-                </li>
-              </ul>
-              <ul className={classes.list}>
-                <li>
-                  <b>{item.likes}</b> likes
-                </li>
-                <li>
-                  <b>{item.comments}</b> comments
-                </li>
-                <li />
-              </ul>
-            </CardContent>
-          </Card>
-        );
-      })}
+      <span>{count}</span>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={loadMore}
+        hasMore={hasMore}
+        loader={<div key={0}>Загрузка ...</div>}>
+        <div className={classes.contentContainer}>
+          {data.map((item) => {
+            return <Card key={item.username} item={item} />;
+          })}
+        </div>
+      </InfiniteScroll>
     </div>
   );
 };
 
-export default withStyles(styles, { withTheme: true })(CardList);
+CardList.propTypes = {
+  loadMore: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired,
+  data: PropTypes.array.isRequired
+};
+
+export default withStyles(styles)(CardList);

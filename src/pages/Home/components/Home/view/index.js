@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
 import CardList from '../../CardList';
+// import FilterList from '../../FilterList';
 
 const Home = () => {
   return (
