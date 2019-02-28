@@ -1,22 +1,30 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import { withStyles } from "@material-ui/core/styles";
 
-import CardList from '../../CardList';
-// import FilterList from '../../FilterList';
+import CardList from "../../CardList";
+import FilterList from "../../FilterList";
+import styles from "./styles";
 
-const Home = () => {
+const Home = ({ classes }) => {
   return (
-    <div>
+    <div className={classes.container}>
       <AppBar position="static">
         <Toolbar>
           <div>Сайтик</div>
         </Toolbar>
       </AppBar>
+      <FilterList />
       <CardList />
     </div>
   );
 };
 
-export default Home;
+Home.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Home);

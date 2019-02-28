@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import connect from './connect';
-import View from './view';
+import connect from "./connect";
+import View from "./view";
 
 class CardListContainer extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class CardListContainer extends Component {
     return result;
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     if (
       this.state.hasMore === false &&
       this.props.count > this.state.data.length
