@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
 
-import styles from './styles';
+import styles from './styles'
 
 const ContextLoader = ({ classes }) => {
   return (
@@ -22,11 +22,11 @@ const ContextLoader = ({ classes }) => {
       <div className={classNames(classes.item, classes.child11)} />
       <div className={classNames(classes.item, classes.child12)} />
     </div>
-  );
-};
+  )
+}
 
 ContextLoader.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+  classes: PropTypes.object.isRequired,
+}
 
-export default withStyles(styles)(ContextLoader);
+export default withStyles(styles)(ContextLoader)

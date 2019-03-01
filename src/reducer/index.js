@@ -1,11 +1,11 @@
-import { reducer as reduxFormReducer } from 'redux-form';
-import { combineReducers } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form'
+import { combineReducers } from 'redux'
 
-import pages from './pages';
+import pages from './pages'
 
 const reducer = combineReducers({
   pages,
-  form: reduxFormReducer
-});
+  form: reduxFormReducer,
+})
 
-export default reducer;
+export default reducer

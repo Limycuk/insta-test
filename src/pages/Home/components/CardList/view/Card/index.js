@@ -1,24 +1,24 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
 
-import { AsyncImage } from '~/packages/UI';
+import { AsyncImage } from '~/packages/UI'
 
-import styles from './styles';
+import styles from './styles'
 
 class CardItem extends PureComponent {
   render() {
-    const { item, classes } = this.props;
+    const { item, classes } = this.props
 
     const imageProps = {
       src: item.profile_pic_url,
       alt: item.username,
-      className: classes.avatar
-    };
+      className: classes.avatar,
+    }
 
     return (
       <Card className={classes.card}>
@@ -26,7 +26,8 @@ class CardItem extends PureComponent {
           href={'https://instagram.com/' + item.username}
           target="_blank"
           rel="noopener noreferrer"
-          className={classes.link}>
+          className={classes.link}
+        >
           <AsyncImage imageProps={imageProps} />
         </a>
         <CardContent>
@@ -56,7 +57,7 @@ class CardItem extends PureComponent {
           </ul>
         </CardContent>
       </Card>
-    );
+    )
   }
 }
 
@@ -68,14 +69,14 @@ CardItem.propTypes = {
     full_name: PropTypes.string.isRequired,
     mediaCounts: PropTypes.number.isRequired,
     edge_followed_by: PropTypes.shape({
-      count: PropTypes.number.isRequired
+      count: PropTypes.number.isRequired,
     }).isRequired,
     edge_follow: PropTypes.shape({
-      count: PropTypes.number.isRequired
+      count: PropTypes.number.isRequired,
     }).isRequired,
     likes: PropTypes.number.isRequired,
-    comments: PropTypes.number.isRequired
-  })
-};
+    comments: PropTypes.number.isRequired,
+  }),
+}
 
-export default withStyles(styles)(CardItem);
+export default withStyles(styles)(CardItem)

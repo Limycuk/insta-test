@@ -1,59 +1,59 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
-import NotAvailable from '~/assets/images/common/not-available.jpg';
-import View from './view';
+import NotAvailable from '~/assets/images/common/not-available.jpg'
+import View from './view'
 
 class AsyncImageContainer extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      imageProps: null
-    };
+      imageProps: null,
+    }
   }
 
   componentDidMount() {
-    const { imageProps } = this.props;
+    const { imageProps } = this.props
 
-    var img = new Image();
+    var img = new Image()
 
     img.onload = () => {
       this.setState({
-        imageProps
-      });
-    };
+        imageProps,
+      })
+    }
 
     img.onerror = () => {
       this.setState({
         imageProps: {
           ...imageProps,
           src: NotAvailable,
-          alt: 'изображение недоступно'
-        }
-      });
-    };
+          alt: 'изображение недоступно',
+        },
+      })
+    }
 
-    img.src = imageProps.src;
+    img.src = imageProps.src
   }
 
   render() {
-    const { imageProps } = this.state;
+    const { imageProps } = this.state
 
     const props = {
       isLoading: imageProps === null,
-      imageProps
-    };
+      imageProps,
+    }
 
-    return <View {...props} />;
+    return <View {...props} />
   }
 }
 
 AsyncImageContainer.propTypes = {
   imageProps: PropTypes.shape({
     src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
-  }).isRequired
-};
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
+}
 
-export default AsyncImageContainer;
+export default AsyncImageContainer

@@ -1,13 +1,13 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import data from './data';
-import page from './page';
-import count from './count';
+import data from './data'
+import page from './page'
+import count from './count'
 
 const reducer = combineReducers({
   data,
   page,
-  count
-});
+  count,
+})
 
-export default reducer;
+export default reducer

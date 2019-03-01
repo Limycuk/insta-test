@@ -1,74 +1,71 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import connect from "./connect";
-import View from "./view";
+import connect from './connect'
+import View from './view'
 
 class CardListContainer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    const { count, data } = props;
+    const { count, data } = props
 
     this.state = {
       hasMore: count > data.length,
-      data
-    };
+      data,
+    }
 
-    this.loadMore = this.loadMore.bind(this);
+    this.loadMore = this.loadMore.bind(this)
   }
 
   componentDidMount() {
-    this.props.initData();
+    this.props.initData()
   }
 
   static getDerivedStateFromProps(nextProps, state) {
-    let result = null;
+    let result = null
 
     if (nextProps.data.length > state.data.length) {
       result = {
         hasMore: false,
-        data: nextProps.data
-      };
+        data: nextProps.data,
+      }
     }
 
-    return result;
+    return result
   }
 
   componentDidUpdate() {
-    if (
-      this.state.hasMore === false &&
-      this.props.count > this.state.data.length
-    ) {
+    if (this.state.hasMore === false && this.props.count > this.state.data.length) {
       this.setState({
-        hasMore: true
-      });
+        hasMore: true,
+      })
     }
   }
 
   loadMore(page) {
-    this.props.changePage(page);
+    this.props.changePage(page)
   }
 
   render() {
-    const { count } = this.props;
-    const { data, hasMore } = this.state;
+    const { count } = this.props
+    const { data, hasMore } = this.state
 
     const props = {
       data,
       hasMore,
       count,
-      loadMore: this.loadMore
-    };
+      loadMore: this.loadMore,
+    }
 
-    return <View {...props} />;
+    return <View {...props} />
   }
 }
 
 CardListContainer.propTypes = {
   data: PropTypes.array.isRequired,
   count: PropTypes.number.isRequired,
-  changePage: PropTypes.func.isRequired
-};
+  changePage: PropTypes.func.isRequired,
+}
 
-export default connect(CardListContainer);
+export default connect(CardListContainer)

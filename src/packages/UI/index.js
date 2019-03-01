@@ -1,4 +1,4 @@
-import ContextLoader from './components/ContextLoader';
-import AsyncImage from './components/AsyncImage';
+import ContextLoader from './components/ContextLoader'
+import AsyncImage from './components/AsyncImage'
 
-export { ContextLoader, AsyncImage };
+export { ContextLoader, AsyncImage }
