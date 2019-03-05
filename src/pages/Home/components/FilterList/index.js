@@ -6,8 +6,16 @@ import { FORM_NAME } from '../../constants'
 import View from './view'
 
 class FilterListContainer extends Component {
+  constructor(props) {
+    super(props)
+
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
   onSubmit(data) {
-    console.log('data == ', data)
+    const { actions } = this.props
+
+    actions.filterData({ data })
   }
 
   render() {
@@ -25,6 +33,9 @@ class FilterListContainer extends Component {
 
 FilterListContainer.propTypes = {
   count: PropTypes.number.isRequired,
+  actions: PropTypes.shape({
+    filterData: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 export default connect(FilterListContainer)
