@@ -48,13 +48,11 @@ class CardListContainer extends Component {
   }
 
   render() {
-    const { count } = this.props
     const { data, hasMore } = this.state
 
     const props = {
       data,
       hasMore,
-      count,
       loadMore: this.loadMore,
     }
 

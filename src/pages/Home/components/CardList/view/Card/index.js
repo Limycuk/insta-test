@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import Card from '@material-ui/core/Card'
+import MaterialCard from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
@@ -10,7 +10,7 @@ import { AsyncImage } from '~/packages/UI'
 
 import styles from './styles'
 
-class CardItem extends PureComponent {
+class Card extends PureComponent {
   render() {
     const { item, classes } = this.props
 
@@ -21,7 +21,7 @@ class CardItem extends PureComponent {
     }
 
     return (
-      <Card className={classes.card}>
+      <MaterialCard className={classes.card}>
         <a
           href={'https://instagram.com/' + item.username}
           target="_blank"
@@ -56,12 +56,12 @@ class CardItem extends PureComponent {
             <li />
           </ul>
         </CardContent>
-      </Card>
+      </MaterialCard>
     )
   }
 }
 
-CardItem.propTypes = {
+Card.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
@@ -77,6 +77,7 @@ CardItem.propTypes = {
     likes: PropTypes.number.isRequired,
     comments: PropTypes.number.isRequired,
   }),
+  classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(CardItem)
+export default withStyles(styles)(Card)
