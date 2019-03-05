@@ -1,14 +1,14 @@
 {
   "main.css": "/insta-test/static/css/main.a3edc7df.chunk.css",
-  "main.js": "/insta-test/static/js/main.1a22614f.chunk.js",
-  "main.js.map": "/insta-test/static/js/main.1a22614f.chunk.js.map",
-  "static/js/1.19b04784.chunk.js": "/insta-test/static/js/1.19b04784.chunk.js",
-  "static/js/1.19b04784.chunk.js.map": "/insta-test/static/js/1.19b04784.chunk.js.map",
+  "main.js": "/insta-test/static/js/main.9d3798f4.chunk.js",
+  "main.js.map": "/insta-test/static/js/main.9d3798f4.chunk.js.map",
+  "static/js/1.48449515.chunk.js": "/insta-test/static/js/1.48449515.chunk.js",
+  "static/js/1.48449515.chunk.js.map": "/insta-test/static/js/1.48449515.chunk.js.map",
   "runtime~main.js": "/insta-test/static/js/runtime~main.07e7666e.js",
   "runtime~main.js.map": "/insta-test/static/js/runtime~main.07e7666e.js.map",
   "static/media/not-available.jpg": "/insta-test/static/media/not-available.baef09ca.jpg",
   "static/css/main.a3edc7df.chunk.css.map": "/insta-test/static/css/main.a3edc7df.chunk.css.map",
   "index.html": "/insta-test/index.html",
-  "precache-manifest.7623b5b7a486124edcbb8a65cd74e08b.js": "/insta-test/precache-manifest.7623b5b7a486124edcbb8a65cd74e08b.js",
+  "precache-manifest.12e61ded5d5088f314e2321397cffed0.js": "/insta-test/precache-manifest.12e61ded5d5088f314e2321397cffed0.js",
   "service-worker.js": "/insta-test/service-worker.js"
 }
