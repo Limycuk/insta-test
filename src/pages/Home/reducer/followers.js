@@ -6,11 +6,11 @@ const defaultState = []
 
 export default handleActions(
   {
-    [actions.setData]: (state, action) => {
-      return action.payload.data
+    [actions.filterData]: () => {
+      return defaultState
     },
     [actions.updateData]: (state, action) => {
-      return [...state, ...action.payload.data]
+      return [...state, ...action.payload.followers]
     },
   },
   defaultState,

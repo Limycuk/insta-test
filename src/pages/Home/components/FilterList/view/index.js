@@ -23,6 +23,8 @@ const FilterList = ({ classes, handleSubmit, count }) => {
             name="commentsFrom"
             className={classes.field}
             component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
             label="Коментариев от:"
             type="number"
           />
@@ -30,6 +32,8 @@ const FilterList = ({ classes, handleSubmit, count }) => {
             name="commentsTo"
             className={classes.field}
             component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
             label="Коментариев до:"
             type="number"
           />
@@ -39,6 +43,8 @@ const FilterList = ({ classes, handleSubmit, count }) => {
             name="followersFrom"
             className={classes.field}
             component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
             label="Подписчиков от:"
             type="number"
           />
@@ -46,6 +52,8 @@ const FilterList = ({ classes, handleSubmit, count }) => {
             name="followersTo"
             className={classes.field}
             component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
             label="Подписчиков до:"
             type="number"
           />
@@ -55,6 +63,8 @@ const FilterList = ({ classes, handleSubmit, count }) => {
             name="followingsFrom"
             className={classes.field}
             component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
             label="Подписок от:"
             type="number"
           />
@@ -62,13 +72,31 @@ const FilterList = ({ classes, handleSubmit, count }) => {
             name="followingsTo"
             className={classes.field}
             component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
             label="Подписок до:"
             type="number"
           />
         </div>
         <div className={classes.group}>
-          <Field name="postsFrom" className={classes.field} component={FormInput} label="Постов от:" type="number" />
-          <Field name="postsTo" className={classes.field} component={FormInput} label="Постов до:" type="number" />
+          <Field
+            name="postsFrom"
+            className={classes.field}
+            component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
+            label="Постов от:"
+            type="number"
+          />
+          <Field
+            name="postsTo"
+            className={classes.field}
+            component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
+            label="Постов до:"
+            type="number"
+          />
         </div>
         <div className={classes.submitContainer}>
           <span>

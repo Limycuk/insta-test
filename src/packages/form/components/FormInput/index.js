@@ -21,6 +21,8 @@ const FormInput = ({
   type,
   className,
   isDisabled,
+  pattern,
+  inputMode,
 }) => {
   return (
     <FormControl
@@ -40,6 +42,10 @@ const FormInput = ({
         onChange={onChange}
         fullWidth={isFullWidth}
         type={type}
+        inputProps={{
+          pattern,
+          inputMode,
+        }}
         error={submitFailed && !_.isNil(error)}
       />
       {helperText && <FormHelperText>{helperText}</FormHelperText>}
@@ -67,6 +73,8 @@ FormInput.propTypes = {
   helperText: PropTypes.string,
   isFullWidth: PropTypes.bool,
   type: PropTypes.string,
+  inputMode: PropTypes.string,
+  pattern: PropTypes.string,
   className: PropTypes.string,
 }
 
@@ -76,6 +84,8 @@ FormInput.defaultProps = {
   isFullWidth: true,
   type: 'text',
   isDisabled: false,
+  inputMode: 'none',
+  pattern: null,
 }
 
 export default withStyles(styles)(FormInput)

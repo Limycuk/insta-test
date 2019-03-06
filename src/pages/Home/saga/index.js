@@ -1,48 +1,34 @@
-import { takeLatest, all, put, select } from 'redux-saga/effects'
+import { takeLatest, all, put, select, call } from 'redux-saga/effects'
 import { getFormValues } from 'redux-form'
 
 import data_04_01_2019 from '~/data/04-01-2019'
 
 import * as actions from '../actions'
 import * as selectors from '../selectors'
-import { USERS_LIMIT, FORM_NAME } from '../constants'
-
-function* initData() {
-  const data = data_04_01_2019
-
-  yield put(
-    actions.setData({
-      data: data.slice(0, USERS_LIMIT),
-      count: data.length,
-    }),
-  )
-}
+import { FOLLOWERS_LIMIT, FORM_NAME } from '../constants'
+import filterFollowers from '../services/filterFollowers'
+import paginateFollowers from '../services/paginateFollowers'
 
 function* loadData() {
-  let data = data_04_01_2019
+  const followers = data_04_01_2019
 
   const page = yield select(selectors.getPage)
   const filters = yield select(getFormValues(FORM_NAME))
 
-  if (filters.likesFrom) {
-    const likesFrom = parseInt(filters.likesFrom)
-    console.log({ likesFrom })
-    data = data.filter((item) => likesFrom >= item.likes)
-    console.log({ data })
-  }
-
-  data = data.slice(page * USERS_LIMIT, (page + 1) * USERS_LIMIT)
+  const filteredFollowers = yield call(filterFollowers, followers, filters)
+  const paginatedFollowers = yield call(paginateFollowers, filteredFollowers, page, FOLLOWERS_LIMIT)
 
   yield put(
     actions.updateData({
-      data,
+      followers: paginatedFollowers,
+      count: filteredFollowers.length,
     }),
   )
 }
 
 export default function*() {
   yield all([
-    takeLatest(actions.initData, initData),
+    takeLatest(actions.initData, loadData),
     takeLatest(actions.changePage, loadData),
     takeLatest(actions.filterData, loadData),
   ])

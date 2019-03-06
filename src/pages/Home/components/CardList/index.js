@@ -8,11 +8,11 @@ class CardListContainer extends Component {
   constructor(props) {
     super(props)
 
-    const { count, data } = props
+    const { count, followers } = props
 
     this.state = {
-      hasMore: count > data.length,
-      data,
+      hasMore: count > followers.length,
+      followers,
     }
 
     this.loadMore = this.loadMore.bind(this)
@@ -22,13 +22,13 @@ class CardListContainer extends Component {
     this.props.initData()
   }
 
-  static getDerivedStateFromProps(nextProps, state) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     let result = null
 
-    if (nextProps.data.length > state.data.length) {
+    if (nextProps.followers !== prevState.followers) {
       result = {
         hasMore: false,
-        data: nextProps.data,
+        followers: nextProps.followers,
       }
     }
 
@@ -36,7 +36,7 @@ class CardListContainer extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.hasMore === false && this.props.count > this.state.data.length) {
+    if (this.state.hasMore === false && this.props.count > this.state.followers.length) {
       this.setState({
         hasMore: true,
       })
@@ -44,14 +44,14 @@ class CardListContainer extends Component {
   }
 
   loadMore(page) {
-    this.props.changePage(page)
+    this.props.changePage({ page })
   }
 
   render() {
-    const { data, hasMore } = this.state
+    const { followers, hasMore } = this.state
 
     const props = {
-      data,
+      followers,
       hasMore,
       loadMore: this.loadMore,
     }
@@ -61,7 +61,7 @@ class CardListContainer extends Component {
 }
 
 CardListContainer.propTypes = {
-  data: PropTypes.array.isRequired,
+  followers: PropTypes.array.isRequired,
   count: PropTypes.number.isRequired,
   changePage: PropTypes.func.isRequired,
 }

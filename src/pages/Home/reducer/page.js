@@ -1,13 +1,16 @@
 import { handleActions } from 'redux-actions'
 
-import * as action from '../actions'
+import * as actions from '../actions'
 
 const defaultState = 0
 
 export default handleActions(
   {
-    [action.changePage]: (state, action) => {
-      return action.payload
+    [actions.filterData]: () => {
+      return defaultState
+    },
+    [actions.changePage]: (state, action) => {
+      return action.payload.page
     },
   },
   defaultState,

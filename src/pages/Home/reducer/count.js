@@ -6,7 +6,7 @@ const defaultState = 0
 
 export default handleActions(
   {
-    [actions.setData]: (state, action) => {
+    [actions.updateData]: (state, action) => {
       return action.payload.count
     },
   },

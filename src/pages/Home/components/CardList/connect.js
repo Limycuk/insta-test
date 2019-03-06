@@ -5,7 +5,7 @@ import * as actions from '../../actions'
 
 const mapStateToProps = (state) => {
   return {
-    data: selectors.getData(state),
+    followers: selectors.getFollowers(state),
     count: selectors.getCount(state),
   }
 }

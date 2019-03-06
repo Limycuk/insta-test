@@ -9,12 +9,12 @@ import { ContextLoader } from '~/packages/UI'
 import styles from './styles'
 import Card from './Card'
 
-const CardList = ({ classes, data, loadMore, hasMore }) => {
+const CardList = ({ classes, followers, loadMore, hasMore }) => {
   return (
     <div className={classes.container}>
       <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={hasMore} loader={<ContextLoader key="0" />}>
         <div className={classes.contentContainer}>
-          {data.map((item) => {
+          {followers.map((item) => {
             return <Card key={item.username} item={item} />
           })}
         </div>
@@ -25,7 +25,7 @@ const CardList = ({ classes, data, loadMore, hasMore }) => {
 
 CardList.propTypes = {
   loadMore: PropTypes.func.isRequired,
-  data: PropTypes.array.isRequired,
+  followers: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
   hasMore: PropTypes.bool.isRequired,
 }
