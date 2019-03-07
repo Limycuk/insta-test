@@ -15,8 +15,24 @@ const FilterList = ({ classes, handleSubmit, count }) => {
     <form onSubmit={handleSubmit} className={classes.container}>
       <div className={classes.panel}>
         <div className={classes.group}>
-          <Field name="likesFrom" className={classes.field} component={FormInput} label="Лайков от:" type="number" />
-          <Field name="likesTo" className={classes.field} component={FormInput} label="Лайков до:" type="number" />
+          <Field
+            name="likesFrom"
+            className={classes.field}
+            component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
+            label="Лайков от:"
+            type="number"
+          />
+          <Field
+            name="likesTo"
+            className={classes.field}
+            component={FormInput}
+            pattern="[0-9]*"
+            inputMode="numeric"
+            label="Лайков до:"
+            type="number"
+          />
         </div>
         <div className={classes.group}>
           <Field
