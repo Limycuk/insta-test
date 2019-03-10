@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/insta-test/precache-manifest.3de2ef798f3ea12580327ca5c7128d78.js"
+  "/insta-test/precache-manifest.2474248621fa6d3f22bdd0c2bbb85633.js"
 );
 
 workbox.clientsClaim();
