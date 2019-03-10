@@ -3,6 +3,7 @@ export default () => ({
     maxWidth: 345,
     margin: 20,
     minWidth: 345,
+    paddingTop: 24,
   },
   list: {
     display: 'flex',

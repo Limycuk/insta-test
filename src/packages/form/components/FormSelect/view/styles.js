@@ -2,6 +2,7 @@ export default (theme) => ({
   container: {
     boxSizing: 'border-box',
     marginTop: 8,
+    marginBottom: 8,
   },
   error: {
     ...theme.error,

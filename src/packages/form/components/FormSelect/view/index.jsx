@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 
 import styles from './styles'
+import NativeOption from './NativeOption'
 
 const FormSelect = ({
   classes,
@@ -18,8 +19,10 @@ const FormSelect = ({
   label,
   className,
   options,
+  isNativeSelect,
 }) => {
   const containerClasses = classNames(classes.container, className)
+  const OptionComponent = isNativeSelect ? NativeOption : MenuItem
 
   return (
     <FormControl className={containerClasses} fullWidth={isFullWidth}>
@@ -27,6 +30,7 @@ const FormSelect = ({
         {label}
       </InputLabel>
       <Select
+        native={isNativeSelect}
         value={value}
         onChange={onChange}
         inputProps={{
@@ -34,13 +38,11 @@ const FormSelect = ({
           id: name,
         }}
       >
-        <MenuItem value="">
-          <em>Без сортировки</em>
-        </MenuItem>
+        <OptionComponent value="">Без сортировки</OptionComponent>
         {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+          <OptionComponent key={option.value} value={option.value}>
             {option.label}
-          </MenuItem>
+          </OptionComponent>
         ))}
       </Select>
     </FormControl>
@@ -66,6 +68,7 @@ FormSelect.propTypes = {
   ).isRequired,
   className: PropTypes.string,
   isFullWidth: PropTypes.bool.isRequired,
+  isNativeSelect: PropTypes.bool.isRequired,
 }
 
 FormSelect.defaultProps = {
