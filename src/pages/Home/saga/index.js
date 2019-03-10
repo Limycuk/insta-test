@@ -7,16 +7,18 @@ import * as actions from '../actions'
 import * as selectors from '../selectors'
 import { FOLLOWERS_LIMIT, FORM_NAME } from '../constants'
 import filterFollowers from '../services/filterFollowers'
+import sortFollowers from '../services/sortFollowers'
 import paginateFollowers from '../services/paginateFollowers'
 
 function* loadData() {
   const followers = data_04_01_2019
 
   const page = yield select(selectors.getPage)
-  const filters = yield select(getFormValues(FORM_NAME))
+  const formValues = yield select(getFormValues(FORM_NAME))
 
-  const filteredFollowers = yield call(filterFollowers, followers, filters)
-  const paginatedFollowers = yield call(paginateFollowers, filteredFollowers, page, FOLLOWERS_LIMIT)
+  const filteredFollowers = yield call(filterFollowers, followers, formValues)
+  const sortedFollowers = yield call(sortFollowers, filteredFollowers, formValues)
+  const paginatedFollowers = yield call(paginateFollowers, sortedFollowers, page, FOLLOWERS_LIMIT)
 
   yield put(
     actions.updateData({

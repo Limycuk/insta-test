@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
   return {
     followers: selectors.getFollowers(state),
     count: selectors.getCount(state),
+    page: selectors.getPage(state),
   }
 }
 

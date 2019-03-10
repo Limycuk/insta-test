@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import debounce from '~/services/debounce'
+
 import connect from './connect'
 import View from './view'
 
@@ -15,7 +17,7 @@ class CardListContainer extends Component {
       followers,
     }
 
-    this.loadMore = this.loadMore.bind(this)
+    this.loadMore = debounce(this.loadMore.bind(this), 300)
   }
 
   componentDidMount() {
@@ -43,8 +45,10 @@ class CardListContainer extends Component {
     }
   }
 
-  loadMore(page) {
-    this.props.changePage({ page })
+  loadMore() {
+    const { page } = this.props
+
+    this.props.changePage({ page: page + 1 })
   }
 
   render() {

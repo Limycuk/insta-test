@@ -6,11 +6,11 @@ import { compose } from 'redux'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
 
-import { FormInput } from '~/packages/form'
+import { FormInput, FormSelect } from '~/packages/form'
 
 import styles from './styles'
 
-const FilterList = ({ classes, handleSubmit, count }) => {
+const FilterList = ({ classes, handleSubmit, count, sortOptions }) => {
   return (
     <form onSubmit={handleSubmit} className={classes.container}>
       <div className={classes.panel}>
@@ -114,6 +114,15 @@ const FilterList = ({ classes, handleSubmit, count }) => {
             type="number"
           />
         </div>
+        <div className={classes.group}>
+          <Field
+            name="sort"
+            className={classes.field}
+            component={FormSelect}
+            options={sortOptions}
+            label="Сортировать по:"
+          />
+        </div>
         <div className={classes.submitContainer}>
           <span>
             Количество: <b>{count}</b>
@@ -131,6 +140,12 @@ FilterList.propTypes = {
   classes: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   count: PropTypes.number.isRequired,
+  sortOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    }),
+  ).isRequired,
 }
 
 export default compose(

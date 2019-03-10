@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import connect from './connect'
-import { FORM_NAME } from '../../constants'
+import { FORM_NAME, SORT_OPTIONS } from '../../constants'
 import View from './view'
 
 class FilterListContainer extends Component {
@@ -25,6 +25,7 @@ class FilterListContainer extends Component {
       form: FORM_NAME,
       onSubmit: this.onSubmit,
       count,
+      sortOptions: SORT_OPTIONS,
     }
 
     return <View {...props} />
