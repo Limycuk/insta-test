@@ -6,7 +6,7 @@ import { compose } from 'redux'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
 
-import { FormInput, FormSelect } from '~/packages/form'
+import { FormInput, FormSelect, FormAutocomplete } from '~/packages/form'
 
 import styles from './styles'
 
@@ -122,6 +122,7 @@ const FilterList = ({ classes, handleSubmit, count, sortOptions }) => {
             options={sortOptions}
             label="Сортировать по:"
           />
+          <Field name="username" className={classes.field} component={FormAutocomplete} label="Поиск по нику:" />
         </div>
         <div className={classes.submitContainer}>
           <span>
