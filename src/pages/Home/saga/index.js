@@ -9,6 +9,7 @@ import { FOLLOWERS_LIMIT, FORM_NAME } from '../constants'
 import filterFollowers from '../services/filterFollowers'
 import sortFollowers from '../services/sortFollowers'
 import paginateFollowers from '../services/paginateFollowers'
+import prepareUsernameSuggestions from '../services/prepareUsernameSuggestions'
 
 function* loadData() {
   const followers = data_04_01_2019
@@ -28,10 +29,20 @@ function* loadData() {
   )
 }
 
+function* handleUsernameAutocomplete(action) {
+  const followers = data_04_01_2019
+
+  const { autocompleteValue } = action.payload
+
+  const preparedUsernameSuggestions = yield call(prepareUsernameSuggestions, followers, autocompleteValue)
+  yield put(actions.saveUsernameSuggestions({ preparedUsernameSuggestions }))
+}
+
 export default function*() {
   yield all([
     takeLatest(actions.initData, loadData),
     takeLatest(actions.changePage, loadData),
     takeLatest(actions.filterData, loadData),
+    takeLatest(actions.hangleUserAutocomplete, handleUsernameAutocomplete),
   ])
 }

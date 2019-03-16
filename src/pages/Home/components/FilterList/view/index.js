@@ -10,7 +10,15 @@ import { FormInput, FormSelect, FormAutocomplete } from '~/packages/form'
 
 import styles from './styles'
 
-const FilterList = ({ classes, handleSubmit, count, sortOptions }) => {
+const FilterList = ({
+  classes,
+  handleSubmit,
+  count,
+  sortOptions,
+  autocompleteUsernames,
+  handleTypeUsername,
+  clearUsernamesSuggestions,
+}) => {
   return (
     <form onSubmit={handleSubmit} className={classes.container}>
       <div className={classes.panel}>
@@ -122,7 +130,15 @@ const FilterList = ({ classes, handleSubmit, count, sortOptions }) => {
             options={sortOptions}
             label="Сортировать по:"
           />
-          <Field name="username" className={classes.field} component={FormAutocomplete} label="Поиск по нику:" />
+          <Field
+            name="username"
+            className={classes.field}
+            component={FormAutocomplete}
+            suggestions={autocompleteUsernames}
+            onSuggestionsFetchRequested={handleTypeUsername}
+            onSuggestionsClearRequested={clearUsernamesSuggestions}
+            label="Поиск по нику:"
+          />
         </div>
         <div className={classes.submitContainer}>
           <span>
@@ -141,6 +157,9 @@ FilterList.propTypes = {
   classes: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   count: PropTypes.number.isRequired,
+  handleTypeUsername: PropTypes.func.isRequired,
+  clearUsernamesSuggestions: PropTypes.func.isRequired,
+  autocompleteUsernames: PropTypes.array.isRequired,
   sortOptions: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

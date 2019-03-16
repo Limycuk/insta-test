@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 import CustomInput from './CustomInput'
 import Suggestion from './Suggestion'
+import getSuggestionValue from '../services/getSuggestionValue'
 
 class IntegrationAutosuggest extends React.Component {
   render() {
@@ -26,7 +27,6 @@ class IntegrationAutosuggest extends React.Component {
       label,
       onSuggestionsFetchRequested,
       onSuggestionsClearRequested,
-      getSuggestionValue,
       suggestions,
     } = this.props
 
@@ -106,7 +106,6 @@ IntegrationAutosuggest.propTypes = {
   label: PropTypes.string,
   onSuggestionsFetchRequested: PropTypes.func.isRequired,
   onSuggestionsClearRequested: PropTypes.func.isRequired,
-  getSuggestionValue: PropTypes.func.isRequired,
   suggestions: PropTypes.array.isRequired,
 }
 

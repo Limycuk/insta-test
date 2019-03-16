@@ -38,7 +38,7 @@ const FormSelect = ({
           id: name,
         }}
       >
-        <OptionComponent value="">Без сортировки</OptionComponent>
+        <OptionComponent value="">&nbsp;</OptionComponent>
         {options.map((option) => (
           <OptionComponent key={option.value} value={option.value}>
             {option.label}

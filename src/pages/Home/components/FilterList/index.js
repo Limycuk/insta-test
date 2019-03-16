@@ -10,6 +10,8 @@ class FilterListContainer extends Component {
     super(props)
 
     this.onSubmit = this.onSubmit.bind(this)
+    this.handleTypeUsername = this.handleTypeUsername.bind(this)
+    this.clearUsernamesSuggestions = this.clearUsernamesSuggestions.bind(this)
   }
 
   onSubmit(data) {
@@ -18,14 +20,29 @@ class FilterListContainer extends Component {
     actions.filterData({ data })
   }
 
+  handleTypeUsername({ value }) {
+    const { actions } = this.props
+
+    actions.hangleUserAutocomplete({ autocompleteValue: value })
+  }
+
+  clearUsernamesSuggestions() {
+    const { actions } = this.props
+
+    actions.saveUsernameSuggestions({ preparedUsernameSuggestions: [] })
+  }
+
   render() {
-    const { count } = this.props
+    const { count, usernameSuggestions } = this.props
 
     const props = {
       form: FORM_NAME,
       onSubmit: this.onSubmit,
       count,
       sortOptions: SORT_OPTIONS,
+      handleTypeUsername: this.handleTypeUsername,
+      clearUsernamesSuggestions: this.clearUsernamesSuggestions,
+      autocompleteUsernames: usernameSuggestions,
     }
 
     return <View {...props} />
@@ -36,6 +53,7 @@ FilterListContainer.propTypes = {
   count: PropTypes.number.isRequired,
   actions: PropTypes.shape({
     filterData: PropTypes.func.isRequired,
+    hangleUserAutocomplete: PropTypes.func.isRequired,
   }).isRequired,
 }
 

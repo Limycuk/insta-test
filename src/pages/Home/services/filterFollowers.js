@@ -42,6 +42,13 @@ const filterFollowers = (followers, filter) => {
     case 'postsTo': {
       return followers.filter(compare, { name: 'mediaCounts', value: parseInt(filterValue), isMore: false })
     }
+    case 'username': {
+      for (let follower of followers) {
+        if (follower.username === filterValue) {
+          return [follower]
+        }
+      }
+    }
   }
 
   return followers
