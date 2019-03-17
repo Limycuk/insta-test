@@ -1,5 +1,5 @@
 import { takeLatest, all, put, select, call } from 'redux-saga/effects'
-import { getFormValues } from 'redux-form'
+import { getFormValues, clearFields } from 'redux-form'
 
 import data_04_01_2019 from '~/data/04-01-2019'
 
@@ -41,11 +41,19 @@ function* handleUsernameAutocomplete(action) {
   yield put(actions.saveUsernameSuggestions({ preparedUsernameSuggestions }))
 }
 
+function* clearFilterField(action) {
+  const { fieldName } = action.payload
+
+  yield put(clearFields(FORM_NAME, false, false, fieldName))
+  yield loadData()
+}
+
 export default function*() {
   yield all([
     takeLatest(actions.initData, loadData),
     takeLatest(actions.changePage, loadData),
     takeLatest(actions.filterData, loadData),
     takeLatest(actions.hangleUserAutocomplete, handleUsernameAutocomplete),
+    takeLatest(actions.removeFilter, clearFilterField),
   ])
 }

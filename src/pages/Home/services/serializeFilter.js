@@ -1,3 +1,17 @@
+import { SORT_OPTIONS } from '../constants'
+
+const mapSortValue = (value) => {
+  const sortOption = SORT_OPTIONS.find((sortOption) => {
+    return sortOption.value === value
+  })
+
+  if (sortOption) {
+    return sortOption.label
+  }
+
+  return value
+}
+
 export default (filterName, filterValue) => {
   switch (filterName) {
     case 'likesFrom': {
@@ -83,7 +97,7 @@ export default (filterName, filterValue) => {
     case 'sort': {
       return {
         label: 'Сортировка',
-        value: filterValue,
+        value: mapSortValue(filterValue),
         icon: 'sort_by_alpha',
       }
     }

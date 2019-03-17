@@ -14,6 +14,7 @@ export default () => ({
     border: '1px solid #a9a9a9',
     display: 'flex',
     flexWrap: 'wrap',
+    boxSizing: 'border-box',
   },
   group: {
     border: '1px solid rgba(0, 0, 0, 0.23)',

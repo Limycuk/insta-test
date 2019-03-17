@@ -8,7 +8,7 @@ import Icon from '@material-ui/core/Icon'
 import styles from './styles'
 import serializeFilter from '../../../services/serializeFilter'
 
-const FilterValues = ({ classes, filters, count }) => {
+const FilterValues = ({ classes, filters, count, removeFilter }) => {
   return (
     <div className={classes.container}>
       <div className={classes.panel}>
@@ -32,7 +32,7 @@ const FilterValues = ({ classes, filters, count }) => {
                   </b>
                 </span>
               }
-              onDelete={(...params) => console.log('DELETE == ', params)}
+              onDelete={removeFilter(filterName)}
               className={classes.chip}
             />
           )
@@ -48,6 +48,7 @@ FilterValues.propTypes = {
   filters: PropTypes.shape({
     username: PropTypes.string,
   }).isRequired,
+  removeFilter: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles)(FilterValues)
