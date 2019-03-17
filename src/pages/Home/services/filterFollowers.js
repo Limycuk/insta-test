@@ -48,6 +48,7 @@ const filterFollowers = (followers, filter) => {
           return [follower]
         }
       }
+      return []
     }
   }
 

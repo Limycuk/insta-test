@@ -12,3 +12,9 @@ body {
   flex-direction: column;
   background-color: #eeeeee;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}

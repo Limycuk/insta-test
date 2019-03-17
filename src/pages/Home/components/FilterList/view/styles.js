@@ -1,6 +1,6 @@
 export default () => ({
   container: {
-    padding: 20,
+    padding: '20px 20px 0',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',

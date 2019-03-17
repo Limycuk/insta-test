@@ -21,12 +21,15 @@ function* loadData() {
   const sortedFollowers = yield call(sortFollowers, filteredFollowers, formValues)
   const paginatedFollowers = yield call(paginateFollowers, sortedFollowers, page, FOLLOWERS_LIMIT)
 
-  yield put(
-    actions.updateData({
-      followers: paginatedFollowers,
-      count: filteredFollowers.length,
-    }),
-  )
+  yield all([
+    put(actions.saveFilters({ filters: formValues || {} })),
+    put(
+      actions.updateData({
+        followers: paginatedFollowers,
+        count: filteredFollowers.length,
+      }),
+    ),
+  ])
 }
 
 function* handleUsernameAutocomplete(action) {

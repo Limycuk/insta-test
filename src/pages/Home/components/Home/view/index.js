@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 import CardList from '../../CardList'
 import FilterList from '../../FilterList'
+import FilterValues from '../../FilterValues'
 import styles from './styles'
 
 const Home = ({ classes }) => {
@@ -18,6 +19,7 @@ const Home = ({ classes }) => {
         </Toolbar>
       </AppBar>
       <FilterList />
+      <FilterValues />
       <CardList />
     </div>
   )
