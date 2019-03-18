@@ -45,7 +45,7 @@ function* clearFilterField(action) {
   const { fieldName } = action.payload
 
   yield put(clearFields(FORM_NAME, false, false, fieldName))
-  yield loadData()
+  yield put(actions.filterData())
 }
 
 export default function*() {
