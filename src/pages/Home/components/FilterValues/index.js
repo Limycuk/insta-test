@@ -21,11 +21,8 @@ class FilterValuesContainer extends Component {
     }
   }
 
-  toggleFilter(fieldName) {
-    return () => {
-      window.scroll({ top: 0, left: 0, behavior: 'smooth' })
-      setTimeout(() => document.getElementById(fieldName).focus())
-    }
+  toggleFilter() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' })
   }
 
   render() {

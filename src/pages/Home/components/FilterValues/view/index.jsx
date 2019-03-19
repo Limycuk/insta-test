@@ -32,7 +32,7 @@ const FilterValues = ({ classes, filters, count, removeFilter, toggleFilter }) =
                   </b>
                 </span>
               }
-              onClick={toggleFilter(filterName)}
+              onClick={toggleFilter}
               onDelete={removeFilter(filterName)}
               className={classes.chip}
             />
