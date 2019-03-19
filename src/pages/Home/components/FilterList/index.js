@@ -33,12 +33,11 @@ class FilterListContainer extends Component {
   }
 
   render() {
-    const { count, usernameSuggestions } = this.props
+    const { usernameSuggestions } = this.props
 
     const props = {
       form: FORM_NAME,
       onSubmit: this.onSubmit,
-      count,
       sortOptions: SORT_OPTIONS,
       handleTypeUsername: this.handleTypeUsername,
       clearUsernamesSuggestions: this.clearUsernamesSuggestions,
@@ -50,7 +49,6 @@ class FilterListContainer extends Component {
 }
 
 FilterListContainer.propTypes = {
-  count: PropTypes.number.isRequired,
   actions: PropTypes.shape({
     filterData: PropTypes.func.isRequired,
     hangleUserAutocomplete: PropTypes.func.isRequired,

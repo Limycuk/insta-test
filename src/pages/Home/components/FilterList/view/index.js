@@ -13,11 +13,11 @@ import styles from './styles'
 const FilterList = ({
   classes,
   handleSubmit,
-  count,
   sortOptions,
   autocompleteUsernames,
   handleTypeUsername,
   clearUsernamesSuggestions,
+  reset,
 }) => {
   return (
     <form onSubmit={handleSubmit} className={classes.container}>
@@ -141,11 +141,11 @@ const FilterList = ({
           />
         </div>
         <div className={classes.submitContainer}>
-          <span>
-            Количество: <b>{count}</b>
-          </span>
           <Button variant="contained" color="primary" type="submit" className={classes.button}>
             Фильтровать
+          </Button>
+          <Button variant="outlined" color="primary" type="submit" onClick={reset} className={classes.button}>
+            Сбросить
           </Button>
         </div>
       </div>
@@ -156,10 +156,10 @@ const FilterList = ({
 FilterList.propTypes = {
   classes: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  count: PropTypes.number.isRequired,
   handleTypeUsername: PropTypes.func.isRequired,
   clearUsernamesSuggestions: PropTypes.func.isRequired,
   autocompleteUsernames: PropTypes.array.isRequired,
+  reset: PropTypes.func.isRequired,
   sortOptions: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

@@ -7,6 +7,7 @@ import * as selectors from '../../selectors'
 const mapStateToProps = (state) => {
   return {
     count: selectors.getCount(state),
+    maxCount: selectors.getMaxCount(state),
     filters: selectors.getFilters(state),
   }
 }

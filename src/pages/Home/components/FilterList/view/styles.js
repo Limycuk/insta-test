@@ -7,7 +7,7 @@ export default () => ({
   },
   panel: {
     flex: 1,
-    padding: '20px 10px',
+    padding: '20px 10px 10px',
     backgroundColor: '#e0e0e0',
     borderRadius: 4,
     maxWidth: 1200,

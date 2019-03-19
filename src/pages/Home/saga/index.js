@@ -27,6 +27,7 @@ function* loadData() {
       actions.updateData({
         followers: paginatedFollowers,
         count: filteredFollowers.length,
+        maxCount: followers.length,
       }),
     ),
   ])

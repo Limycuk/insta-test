@@ -26,12 +26,14 @@ class FilterValuesContainer extends Component {
   }
 
   render() {
-    const { count, filters } = this.props
+    const { count, maxCount, filters } = this.props
 
     const props = {
       removeFilter: this.removeFilter,
       toggleFilter: this.toggleFilter,
       count,
+      maxCount,
+      percent: Math.floor(((count * 100) / maxCount) * 100) / 100,
       filters,
     }
 

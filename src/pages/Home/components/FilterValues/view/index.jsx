@@ -8,12 +8,15 @@ import Icon from '@material-ui/core/Icon'
 import styles from './styles'
 import serializeFilter from '../../../services/serializeFilter'
 
-const FilterValues = ({ classes, filters, count, removeFilter, toggleFilter }) => {
+const FilterValues = ({ classes, filters, count, maxCount, percent, removeFilter, toggleFilter }) => {
   return (
     <div className={classes.container}>
       <div className={classes.panel}>
         <div className={classes.filter}>
-          Количество: <b>{count}</b>
+          Количество:{' '}
+          <b>
+            {count}/{maxCount} ({percent}%)
+          </b>
         </div>
         {Object.entries(filters).map((filter) => {
           const [filterName, filterValue] = filter
