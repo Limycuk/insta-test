@@ -13,10 +13,10 @@ const filterFollowers = (followers, filter) => {
 
   switch (filterName) {
     case 'likesFrom': {
-      return followers.filter(compare, { name: 'likes', value: parseInt(filterValue), isMore: true })
+      return followers.filter(compare, { name: 'likes.count', value: parseInt(filterValue), isMore: true })
     }
     case 'likesTo': {
-      return followers.filter(compare, { name: 'likes', value: parseInt(filterValue), isMore: false })
+      return followers.filter(compare, { name: 'likes.count', value: parseInt(filterValue), isMore: false })
     }
     case 'commentsFrom': {
       return followers.filter(compare, { name: 'comments', value: parseInt(filterValue), isMore: true })
@@ -25,16 +25,16 @@ const filterFollowers = (followers, filter) => {
       return followers.filter(compare, { name: 'comments', value: parseInt(filterValue), isMore: false })
     }
     case 'followersFrom': {
-      return followers.filter(compare, { name: 'edge_followed_by.count', value: parseInt(filterValue), isMore: true })
+      return followers.filter(compare, { name: 'followers', value: parseInt(filterValue), isMore: true })
     }
     case 'followersTo': {
-      return followers.filter(compare, { name: 'edge_followed_by.count', value: parseInt(filterValue), isMore: false })
+      return followers.filter(compare, { name: 'followers', value: parseInt(filterValue), isMore: false })
     }
     case 'followingsFrom': {
-      return followers.filter(compare, { name: 'edge_follow.count', value: parseInt(filterValue), isMore: true })
+      return followers.filter(compare, { name: 'followings', value: parseInt(filterValue), isMore: true })
     }
     case 'followingsTo': {
-      return followers.filter(compare, { name: 'edge_follow.count', value: parseInt(filterValue), isMore: false })
+      return followers.filter(compare, { name: 'followings', value: parseInt(filterValue), isMore: false })
     }
     case 'postsFrom': {
       return followers.filter(compare, { name: 'mediaCounts', value: parseInt(filterValue), isMore: true })

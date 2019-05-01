@@ -1,52 +1,37 @@
-import React, { PureComponent } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import NotAvailable from '~/assets/images/common/not-available.jpg'
+
 import View from './view'
 
-class AsyncImageContainer extends PureComponent {
-  constructor(props) {
-    super(props)
+const AsyncImageContainer = ({ imageProps }) => {
+  const [localImageProps, setImageProps] = useState(null)
 
-    this.state = {
-      imageProps: null,
-    }
-  }
-
-  componentDidMount() {
-    const { imageProps } = this.props
-
+  useEffect(() => {
     var img = new Image()
 
     img.onload = () => {
-      this.setState({
-        imageProps,
-      })
+      setImageProps(imageProps)
     }
 
     img.onerror = () => {
-      this.setState({
-        imageProps: {
-          ...imageProps,
-          src: NotAvailable,
-          alt: 'изображение недоступно',
-        },
+      setImageProps({
+        ...imageProps,
+        src: NotAvailable,
+        alt: 'изображение недоступно',
       })
     }
 
     img.src = imageProps.src
+  })
+
+  const props = {
+    isLoading: localImageProps === null,
+    imageProps: localImageProps,
   }
 
-  render() {
-    const { imageProps } = this.state
-
-    const props = {
-      isLoading: imageProps === null,
-      imageProps,
-    }
-
-    return <View {...props} />
-  }
+  return <View {...props} />
 }
 
 AsyncImageContainer.propTypes = {
@@ -56,4 +41,4 @@ AsyncImageContainer.propTypes = {
   }).isRequired,
 }
 
-export default AsyncImageContainer
+export default React.memo(AsyncImageContainer)
