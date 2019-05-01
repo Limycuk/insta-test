@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import MenuItem from '@material-ui/core/MenuItem'
+import MenuItem from '@material-ui/core/MenuItem';
 
 function Suggestion(suggestion, { isHighlighted }) {
   return (
@@ -19,7 +19,7 @@ function Suggestion(suggestion, { isHighlighted }) {
         )}
       </div>
     </MenuItem>
-  )
+  );
 }
 
-export default Suggestion
+export default Suggestion;

@@ -1,37 +1,37 @@
 /* global window */
-import { Component } from 'react'
-import PropTypes from 'prop-types'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import connect from './connect'
-import calculateDevice from '../../services/calculateDevice'
+import connect from './connect';
+import calculateDevice from '../../services/calculateDevice';
 
 class DeviceDetector extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.onResize = this.onResize.bind(this)
+    this.onResize = this.onResize.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.onResize)
+    window.addEventListener('resize', this.onResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize)
+    window.removeEventListener('resize', this.onResize);
   }
 
   onResize() {
-    const { appActions, deviceInfo } = this.props
+    const { appActions, deviceInfo } = this.props;
 
-    const newDeviceInfo = calculateDevice(window.innerWidth)
+    const newDeviceInfo = calculateDevice(window.innerWidth);
 
     if (deviceInfo.device !== newDeviceInfo.device) {
-      appActions.changeDeviceInfo({ deviceInfo: newDeviceInfo })
+      appActions.changeDeviceInfo({ deviceInfo: newDeviceInfo });
     }
   }
 
   render() {
-    return null
+    return null;
   }
 }
 
@@ -42,6 +42,6 @@ DeviceDetector.propTypes = {
   appActions: PropTypes.shape({
     changeDeviceInfo: PropTypes.func.isRequired,
   }).isRequired,
-}
+};
 
-export default connect(DeviceDetector)
+export default connect(DeviceDetector);

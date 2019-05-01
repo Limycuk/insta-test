@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import _ from '~/packages/lodash'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import _ from '~/packages/lodash';
 
-import Input from '@material-ui/core/Input'
-import InputLabel from '@material-ui/core/InputLabel'
-import FormControl from '@material-ui/core/FormControl'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import { withStyles } from '@material-ui/core/styles'
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import { withStyles } from '@material-ui/core/styles';
 
-import styles from './styles'
+import styles from './styles';
 
 const FormInput = ({
   classes,
@@ -51,8 +51,8 @@ const FormInput = ({
       {helperText && <FormHelperText>{helperText}</FormHelperText>}
       {submitFailed && error && <span className={classes.error}>{error}</span>}
     </FormControl>
-  )
-}
+  );
+};
 
 FormInput.propTypes = {
   isDisabled: PropTypes.bool,
@@ -76,7 +76,7 @@ FormInput.propTypes = {
   inputMode: PropTypes.string,
   pattern: PropTypes.string,
   className: PropTypes.string,
-}
+};
 
 FormInput.defaultProps = {
   label: null,
@@ -86,6 +86,6 @@ FormInput.defaultProps = {
   isDisabled: false,
   inputMode: 'none',
   pattern: null,
-}
+};
 
-export default withStyles(styles)(FormInput)
+export default withStyles(styles)(FormInput);

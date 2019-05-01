@@ -5,4 +5,4 @@ export default () => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
   },
-})
+});

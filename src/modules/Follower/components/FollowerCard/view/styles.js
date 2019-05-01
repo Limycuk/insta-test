@@ -28,4 +28,4 @@ export default () => ({
     maxWidth: 150,
     maxHeight: 150,
   },
-})
+});

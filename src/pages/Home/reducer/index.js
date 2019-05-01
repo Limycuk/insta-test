@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import followers from './followers'
-import page from './page'
-import count from './count'
-import maxCount from './maxCount'
-import usernameSuggestions from './usernameSuggestions'
-import filters from './filters'
+import followers from './followers';
+import page from './page';
+import count from './count';
+import maxCount from './maxCount';
+import usernameSuggestions from './usernameSuggestions';
+import filters from './filters';
 
 const reducer = combineReducers({
   followers,
@@ -14,6 +14,6 @@ const reducer = combineReducers({
   maxCount,
   usernameSuggestions,
   filters,
-})
+});
 
-export default reducer
+export default reducer;

@@ -1,3 +1,3 @@
 export default (suggestion) => {
-  return suggestion.label
-}
+  return suggestion.label;
+};

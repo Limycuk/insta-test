@@ -1,1 +1,1 @@
-export const NAMESPACE = 'FOLLOWER_LIKES::'
+export const NAMESPACE = 'FOLLOWER_LIKES::';

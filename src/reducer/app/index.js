@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import deviceInfo from './deviceInfo'
+import deviceInfo from './deviceInfo';
 
 const reducer = combineReducers({
   deviceInfo,
-})
+});
 
-export default reducer
+export default reducer;

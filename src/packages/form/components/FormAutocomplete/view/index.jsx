@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Autosuggest from 'react-autosuggest'
-import classNames from 'classnames'
-import _ from '~/packages/lodash'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Autosuggest from 'react-autosuggest';
+import classNames from 'classnames';
+import _ from '~/packages/lodash';
 
-import Paper from '@material-ui/core/Paper'
-import Popper from '@material-ui/core/Popper'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import { withStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import { withStyles } from '@material-ui/core/styles';
 
-import styles from './styles'
-import CustomInput from './CustomInput'
-import Suggestion from './Suggestion'
-import getSuggestionValue from '../services/getSuggestionValue'
+import styles from './styles';
+import CustomInput from './CustomInput';
+import Suggestion from './Suggestion';
+import getSuggestionValue from '../services/getSuggestionValue';
 
 class IntegrationAutosuggest extends React.Component {
   render() {
@@ -28,7 +28,7 @@ class IntegrationAutosuggest extends React.Component {
       onSuggestionsFetchRequested,
       onSuggestionsClearRequested,
       suggestions,
-    } = this.props
+    } = this.props;
 
     const autosuggestProps = {
       renderInputComponent: CustomInput,
@@ -37,7 +37,7 @@ class IntegrationAutosuggest extends React.Component {
       onSuggestionsFetchRequested,
       onSuggestionsClearRequested,
       getSuggestionValue,
-    }
+    };
 
     return (
       <FormControl
@@ -61,11 +61,11 @@ class IntegrationAutosuggest extends React.Component {
             value,
             className: classes.input,
             onChange: (event, { newValue }) => {
-              onChange(newValue)
+              onChange(newValue);
             },
             hasError: submitFailed && !_.isNil(error),
             inputRef: (node) => {
-              this.popperNode = node
+              this.popperNode = node;
             },
           }}
           theme={{
@@ -85,7 +85,7 @@ class IntegrationAutosuggest extends React.Component {
           )}
         />
       </FormControl>
-    )
+    );
   }
 }
 
@@ -107,13 +107,13 @@ IntegrationAutosuggest.propTypes = {
   onSuggestionsFetchRequested: PropTypes.func.isRequired,
   onSuggestionsClearRequested: PropTypes.func.isRequired,
   suggestions: PropTypes.array.isRequired,
-}
+};
 
 IntegrationAutosuggest.defaultProps = {
   className: null,
   isFullWidth: true,
   isDisabled: false,
   label: null,
-}
+};
 
-export default withStyles(styles)(IntegrationAutosuggest)
+export default withStyles(styles)(IntegrationAutosuggest);

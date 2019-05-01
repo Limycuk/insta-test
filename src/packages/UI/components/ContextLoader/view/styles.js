@@ -107,4 +107,4 @@ export default () => ({
       animationDelay: '-0.1s',
     },
   },
-})
+});

@@ -1,22 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-import MaterialCard from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import Typography from '@material-ui/core/Typography'
-import { withStyles } from '@material-ui/core/styles'
+import MaterialCard from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
-import { AsyncImage } from '~/packages/UI'
+import { AsyncImage } from '~/packages/UI';
 
-import styles from './styles'
+import styles from './styles';
 
 const FollowerCard = ({ item, classes }) => {
   const imageProps = {
     src: item.avatar,
     alt: item.username,
     className: classes.avatar,
-  }
+  };
 
   return (
     <MaterialCard className={classes.card}>
@@ -57,8 +57,8 @@ const FollowerCard = ({ item, classes }) => {
         </ul>
       </CardContent>
     </MaterialCard>
-  )
-}
+  );
+};
 
 FollowerCard.propTypes = {
   item: PropTypes.shape({
@@ -75,6 +75,6 @@ FollowerCard.propTypes = {
     comments: PropTypes.number.isRequired,
   }),
   classes: PropTypes.object.isRequired,
-}
+};
 
-export default withStyles(styles)(React.memo(FollowerCard))
+export default withStyles(styles)(React.memo(FollowerCard));

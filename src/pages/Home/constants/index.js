@@ -1,6 +1,6 @@
-export const NAMESPACE = 'HOME::'
-export const FOLLOWERS_LIMIT = 18
-export const FORM_NAME = 'FOLLOWERS_FILTERS'
+export const NAMESPACE = 'HOME::';
+export const FOLLOWERS_LIMIT = 18;
+export const FORM_NAME = 'FOLLOWERS_FILTERS';
 
 export const SORT_OPTIONS = [
   {
@@ -43,4 +43,4 @@ export const SORT_OPTIONS = [
     label: 'По возрастанию постов',
     value: 'posts-az',
   },
-]
+];

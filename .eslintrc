@@ -36,7 +36,7 @@
     "jsx-a11y/alt-text": 0,
     "jsx-a11y/href-no-hash": 0,
     "no-mixed-operators": 0,
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "radix": 0,
     "keyword-spacing": [2, { "before": true, "after": true }]
   },

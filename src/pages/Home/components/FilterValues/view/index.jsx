@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Chip from '@material-ui/core/Chip'
-import { withStyles } from '@material-ui/core/styles'
-import Icon from '@material-ui/core/Icon'
+import Chip from '@material-ui/core/Chip';
+import { withStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
 
-import styles from './styles'
-import serializeFilter from '../../../services/serializeFilter'
+import styles from './styles';
+import serializeFilter from '../../../services/serializeFilter';
 
 const FilterValues = ({ classes, filters, count, maxCount, percent, removeFilter, toggleFilter }) => {
   return (
@@ -19,8 +19,8 @@ const FilterValues = ({ classes, filters, count, maxCount, percent, removeFilter
           </b>
         </div>
         {Object.entries(filters).map((filter) => {
-          const [filterName, filterValue] = filter
-          const chip = serializeFilter(filterName, filterValue)
+          const [filterName, filterValue] = filter;
+          const chip = serializeFilter(filterName, filterValue);
 
           return (
             <Chip
@@ -39,12 +39,12 @@ const FilterValues = ({ classes, filters, count, maxCount, percent, removeFilter
               onDelete={removeFilter(filterName)}
               className={classes.chip}
             />
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 FilterValues.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -54,6 +54,6 @@ FilterValues.propTypes = {
   }).isRequired,
   removeFilter: PropTypes.func.isRequired,
   toggleFilter: PropTypes.func.isRequired,
-}
+};
 
-export default withStyles(styles)(FilterValues)
+export default withStyles(styles)(FilterValues);

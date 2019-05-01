@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import { withStyles } from '@material-ui/core/styles'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
+import { withStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-import styles from './styles'
-import NativeOption from './NativeOption'
+import styles from './styles';
+import NativeOption from './NativeOption';
 
 const FormSelect = ({
   classes,
@@ -21,8 +21,8 @@ const FormSelect = ({
   options,
   isNativeSelect,
 }) => {
-  const containerClasses = classNames(classes.container, className)
-  const OptionComponent = isNativeSelect ? NativeOption : MenuItem
+  const containerClasses = classNames(classes.container, className);
+  const OptionComponent = isNativeSelect ? NativeOption : MenuItem;
 
   return (
     <FormControl className={containerClasses} fullWidth={isFullWidth}>
@@ -46,8 +46,8 @@ const FormSelect = ({
         ))}
       </Select>
     </FormControl>
-  )
-}
+  );
+};
 
 FormSelect.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -69,10 +69,10 @@ FormSelect.propTypes = {
   className: PropTypes.string,
   isFullWidth: PropTypes.bool.isRequired,
   isNativeSelect: PropTypes.bool.isRequired,
-}
+};
 
 FormSelect.defaultProps = {
   isFullWidth: true,
-}
+};
 
-export default withStyles(styles)(FormSelect)
+export default withStyles(styles)(FormSelect);

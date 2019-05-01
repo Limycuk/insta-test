@@ -1,3 +1,3 @@
-import isNil from './isNil'
+import isNil from './isNil';
 
-export default { isNil }
+export default { isNil };

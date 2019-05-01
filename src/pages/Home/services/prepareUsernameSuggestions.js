@@ -9,7 +9,7 @@ const calculateLabel = (label, startPosition, endPosition) => {
         isHighlighted: false,
         value: label.slice(endPosition),
       },
-    ]
+    ];
   }
 
   if (endPosition - 1 === label.length) {
@@ -22,7 +22,7 @@ const calculateLabel = (label, startPosition, endPosition) => {
         isHighlighted: true,
         value: label.slice(startPosition),
       },
-    ]
+    ];
   }
 
   return [
@@ -38,38 +38,38 @@ const calculateLabel = (label, startPosition, endPosition) => {
       isHighlighted: false,
       value: label.slice(endPosition),
     },
-  ]
-}
+  ];
+};
 
 export default (followers, value) => {
-  const inputValue = value.trim().toLowerCase()
-  let count = 0
-  let result = []
+  const inputValue = value.trim().toLowerCase();
+  let count = 0;
+  let result = [];
 
   if (inputValue.length === 0) {
-    return result
+    return result;
   }
 
   for (let follower of followers) {
     if (count === 5) {
-      break
+      break;
     }
 
-    const startPosition = follower.username.toLowerCase().indexOf(inputValue)
+    const startPosition = follower.username.toLowerCase().indexOf(inputValue);
 
     if (startPosition === -1) {
-      continue
+      continue;
     }
 
-    count++
+    count++;
     result = [
       ...result,
       {
         label: follower.username,
         splitedLabel: calculateLabel(follower.username, startPosition, startPosition + inputValue.length),
       },
-    ]
+    ];
   }
 
-  return result
-}
+  return result;
+};

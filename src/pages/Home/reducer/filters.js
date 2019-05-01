@@ -1,14 +1,14 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions';
 
-import * as actions from '../actions'
+import * as actions from '../actions';
 
-const defaultState = {}
+const defaultState = {};
 
 export default handleActions(
   {
     [actions.saveFilters]: (state, action) => {
-      return action.payload.filters
+      return action.payload.filters;
     },
   },
   defaultState,
-)
+);

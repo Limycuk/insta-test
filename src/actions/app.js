@@ -1,5 +1,5 @@
-import { createAction } from 'redux-actions'
+import { createAction } from 'redux-actions';
 
-import { NAMESPACE } from '../constants'
+import { NAMESPACE } from '../constants';
 
-export const changeDeviceInfo = createAction(NAMESPACE + 'CHANGE_DEVICE_INFO')
+export const changeDeviceInfo = createAction(NAMESPACE + 'CHANGE_DEVICE_INFO');

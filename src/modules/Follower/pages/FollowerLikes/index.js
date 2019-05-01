@@ -1,3 +1,3 @@
-import FollowerLikes from './components/FollowerLikes'
+import FollowerLikes from './components/FollowerLikes';
 
-export default FollowerLikes
+export default FollowerLikes;

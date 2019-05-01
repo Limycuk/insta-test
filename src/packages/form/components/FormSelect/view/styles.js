@@ -8,4 +8,4 @@ export default (theme) => ({
     ...theme.error,
     bottom: -16,
   },
-})
+});

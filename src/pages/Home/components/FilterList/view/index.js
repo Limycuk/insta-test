@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Field, reduxForm } from 'redux-form'
-import { compose } from 'redux'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import { compose } from 'redux';
 
-import Button from '@material-ui/core/Button'
-import { withStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
-import { FormInput, FormSelect, FormAutocomplete } from '~/packages/form'
+import { FormInput, FormSelect, FormAutocomplete } from '~/packages/form';
 
-import styles from './styles'
+import styles from './styles';
 
 const FilterList = ({
   classes,
@@ -150,8 +150,8 @@ const FilterList = ({
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
 FilterList.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -166,9 +166,9 @@ FilterList.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     }),
   ).isRequired,
-}
+};
 
 export default compose(
   withStyles(styles),
   reduxForm(),
-)(FilterList)
+)(FilterList);

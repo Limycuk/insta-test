@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Input from '@material-ui/core/Input'
+import Input from '@material-ui/core/Input';
 
 const CustomInput = ({ inputRef, ref, isFullWidth, type, hasError, ...other }) => {
   return (
@@ -9,14 +9,14 @@ const CustomInput = ({ inputRef, ref, isFullWidth, type, hasError, ...other }) =
       fullWidth={isFullWidth}
       type={type}
       inputRef={(node) => {
-        ref(node)
-        inputRef(node)
+        ref(node);
+        inputRef(node);
       }}
       error={hasError}
       {...other}
     />
-  )
-}
+  );
+};
 
 CustomInput.propTypes = {
   inputRef: PropTypes.func.isRequired,
@@ -29,6 +29,6 @@ CustomInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   hasError: PropTypes.bool.isRequired,
   other: PropTypes.object.isRequired,
-}
+};
 
-export default CustomInput
+export default CustomInput;

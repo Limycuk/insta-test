@@ -1,17 +1,17 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions';
 
-import * as actions from '../actions'
+import * as actions from '../actions';
 
-const defaultState = []
+const defaultState = [];
 
 export default handleActions(
   {
     [actions.filterData]: () => {
-      return defaultState
+      return defaultState;
     },
     [actions.updateData]: (state, action) => {
-      return [...state, ...action.payload.followers]
+      return [...state, ...action.payload.followers];
     },
   },
   defaultState,
-)
+);

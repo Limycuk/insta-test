@@ -1,3 +1,3 @@
 export default (value) => {
-  return value == null
-}
+  return value == null;
+};

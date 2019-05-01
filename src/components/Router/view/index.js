@@ -1,9 +1,9 @@
 /* global process */
-import React, { Fragment } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import Home from '~/pages/Home'
-import FollowerLikes from '~/modules/Follower/pages/FollowerLikes'
+import Home from '~/pages/Home';
+import FollowerLikes from '~/modules/Follower/pages/FollowerLikes';
 
 const Router = () => {
   return (
@@ -13,7 +13,7 @@ const Router = () => {
         <Route exact path="/follower-likes/:username" component={FollowerLikes} />
       </Fragment>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default Router
+export default Router;

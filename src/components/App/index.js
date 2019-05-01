@@ -1,15 +1,15 @@
-import React from 'react'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { Provider } from 'react-redux';
 
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import DeviceDetector from '../DeviceDetector'
+import DeviceDetector from '../DeviceDetector';
 
-import Router from '../Router'
-import createStore from '../../store'
-import theme from './theme'
+import Router from '../Router';
+import createStore from '../../store';
+import theme from './theme';
 
-const { store } = createStore()
+const { store } = createStore();
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Router />
       </MuiThemeProvider>
     </Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

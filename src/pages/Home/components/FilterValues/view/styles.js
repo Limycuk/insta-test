@@ -29,4 +29,4 @@ export default () => ({
     marginRight: 10,
     marginBottom: 5,
   },
-})
+});

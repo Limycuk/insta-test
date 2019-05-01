@@ -1,7 +1,5 @@
-import { all } from 'redux-saga/effects'
-
-import FollowerModule from '~/modules/Follower/saga'
+import { all } from 'redux-saga/effects';
 
 export default function*() {
-  yield all([FollowerModule()])
+  yield all([]);
 }

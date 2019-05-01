@@ -1,10 +1,10 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const palette = {
   error: {
     main: '#f44336',
   },
-}
+};
 
 export default createMuiTheme({
   typography: {
@@ -16,4 +16,4 @@ export default createMuiTheme({
     color: palette.error.main,
     fontSize: '12px',
   },
-})
+});
