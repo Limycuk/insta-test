@@ -69,6 +69,7 @@ CardListContainer.propTypes = {
   count: PropTypes.number.isRequired,
   changePage: PropTypes.func.isRequired,
   initData: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
 export default connect(CardListContainer);
