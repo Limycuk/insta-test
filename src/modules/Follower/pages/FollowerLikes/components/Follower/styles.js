@@ -1,3 +1,7 @@
 export default () => ({
-  container: {},
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
 });

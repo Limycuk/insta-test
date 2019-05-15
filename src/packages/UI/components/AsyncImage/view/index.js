@@ -9,6 +9,7 @@ const AsyncImage = ({ isLoading, imageProps }) => {
 
 AsyncImage.propTypes = {
   isLoading: PropTypes.bool.isRequired,
+  imageProps: PropTypes.object,
 };
 
 export default AsyncImage;

@@ -54,6 +54,8 @@ FilterValues.propTypes = {
   }).isRequired,
   removeFilter: PropTypes.func.isRequired,
   toggleFilter: PropTypes.func.isRequired,
+  maxCount: PropTypes.number.isRequired,
+  percent: PropTypes.number.isRequired,
 };
 
 export default withStyles(styles)(FilterValues);

@@ -68,6 +68,7 @@ CardListContainer.propTypes = {
   followers: PropTypes.array.isRequired,
   count: PropTypes.number.isRequired,
   changePage: PropTypes.func.isRequired,
+  initData: PropTypes.func.isRequired,
 };
 
 export default connect(CardListContainer);

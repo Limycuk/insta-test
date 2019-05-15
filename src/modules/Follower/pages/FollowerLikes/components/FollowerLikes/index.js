@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -27,6 +27,7 @@ FollowerLikesContainer.propTypes = {
       username: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(FollowerLikesContainer);

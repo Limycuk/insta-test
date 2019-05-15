@@ -53,6 +53,7 @@ FilterListContainer.propTypes = {
     filterData: PropTypes.func.isRequired,
     hangleUserAutocomplete: PropTypes.func.isRequired,
   }).isRequired,
+  usernameSuggestions: PropTypes.array.isRequired,
 };
 
 export default connect(FilterListContainer);

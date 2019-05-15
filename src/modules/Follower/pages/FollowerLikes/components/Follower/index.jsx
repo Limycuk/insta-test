@@ -1,26 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import rest from '~/packages/rest';
+import { withStyles } from '@material-ui/core/styles';
 
-const FollowerLikesContainer = ({ classes, username }) => {
-  useEffect(() => {
-    rest.Follower.fetchFollowerByUsername({
-      username,
-    }).then((payload) => {
-      console.log('payload == ', payload);
-    });
-  });
+import FollowerCard from '~/modules/Follower/components/FollowerCard';
+import getFollowerByUsername from '~/modules/Follower/hooks/getFollowerByUsername';
 
-  return <div className={classes.container}>еуые</div>;
+import styles from './styles';
+
+const FollowerContainer = ({ classes, username }) => {
+  const follower = getFollowerByUsername(username);
+
+  return <div className={classes.container}>{follower && <FollowerCard item={follower} />}</div>;
 };
 
-FollowerLikesContainer.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      username: PropTypes.string.isRequired,
-    }).isRequired,
+FollowerContainer.propTypes = {
+  username: PropTypes.string.isRequired,
+  classes: PropTypes.shape({
+    container: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default FollowerLikesContainer;
+export default withStyles(styles)(FollowerContainer);

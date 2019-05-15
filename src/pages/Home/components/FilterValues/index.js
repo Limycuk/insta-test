@@ -45,6 +45,9 @@ FilterValuesContainer.propTypes = {
   actions: PropTypes.shape({
     removeFilter: PropTypes.func.isRequired,
   }).isRequired,
+  count: PropTypes.number.isRequired,
+  maxCount: PropTypes.number.isRequired,
+  filters: PropTypes.object.isRequired,
 };
 
 export default connect(FilterValuesContainer);
