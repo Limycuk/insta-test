@@ -1,7 +1,8 @@
 import { takeLatest, all, put, select, call } from 'redux-saga/effects';
 import { getFormValues, clearFields } from 'redux-form';
 
-import fullFollowersListWithLikes from '~/packages/rest/data/5-full-followers-list-with-likes.json';
+import getDataByFilters from '~/packages/rest/services/getDataByFilters';
+import * as filterelectors from '~/selectors/filters';
 
 import * as actions from '../actions';
 import * as selectors from '../selectors';
@@ -12,7 +13,8 @@ import paginateFollowers from '../services/paginateFollowers';
 import prepareUsernameSuggestions from '../services/prepareUsernameSuggestions';
 
 function* loadData() {
-  const followers = fullFollowersListWithLikes;
+  const filters = yield select(filterelectors.getFilters);
+  const { followers } = getDataByFilters(filters);
 
   const page = yield select(selectors.getPage);
   const formValues = yield select(getFormValues(FORM_NAME));
@@ -34,7 +36,8 @@ function* loadData() {
 }
 
 function* handleUsernameAutocomplete(action) {
-  const followers = fullFollowersListWithLikes;
+  const filters = yield select(filterelectors.getFilters);
+  const { followers } = getDataByFilters(filters);
 
   const { autocompleteValue } = action.payload;
 

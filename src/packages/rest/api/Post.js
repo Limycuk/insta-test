@@ -1,25 +1,27 @@
 /* global Promise */
 
-import followers from '../data/5-full-followers-list-with-likes.json';
-import posts from '../data/4-posts-list-with-likes.json';
+import getDataByFilters from '../services/getDataByFilters';
 
-const getFollowerByUsername = (username) => {
+const getFollowerByUsername = (username, filters) => {
+  const { followers } = getDataByFilters(filters);
+
   return followers.find((follower) => {
     return follower.username === username;
   });
 };
 
-const getPostByShortCode = (shortCode) => {
+const getPostByShortCode = (shortCode, filters) => {
+  const { posts } = getDataByFilters(filters);
+
   return posts.list.find((post) => {
     return post.shortcode === shortCode;
   });
 };
 
-export const fetchLikedPostsByUsername = ({ username }) => {
+export const fetchLikedPostsByUsername = ({ username, filters }) => {
   return new Promise((resolve) => {
-    const follower = getFollowerByUsername(username);
-
-    const likedPosts = follower.likes.likes.map(getPostByShortCode);
+    const follower = getFollowerByUsername(username, filters);
+    const likedPosts = follower.likes.likes.map((shortCode) => getPostByShortCode(shortCode, filters));
 
     resolve({
       likedPosts,
@@ -27,11 +29,11 @@ export const fetchLikedPostsByUsername = ({ username }) => {
   });
 };
 
-export const fetchDisLikedPostsByUsername = ({ username }) => {
+export const fetchDisLikedPostsByUsername = ({ username, filters }) => {
   return new Promise((resolve) => {
-    const follower = getFollowerByUsername(username);
+    const follower = getFollowerByUsername(username, filters);
 
-    const likedPosts = follower.likes.dislikes.map(getPostByShortCode);
+    const likedPosts = follower.likes.dislikes.map((shortCode) => getPostByShortCode(shortCode, filters));
 
     resolve({
       likedPosts,

@@ -1,9 +1,11 @@
 /* global Promise */
 
-import followers from '../data/5-full-followers-list-with-likes.json';
+import getDataByFilters from '../services/getDataByFilters';
 
-export const fetchFollowerByUsername = ({ username }) => {
+export const fetchFollowerByUsername = ({ username, filters }) => {
   return new Promise((resolve) => {
+    const { followers } = getDataByFilters(filters);
+
     const follower = followers.find((follower) => {
       return follower.username === username;
     });

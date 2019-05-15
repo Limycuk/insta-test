@@ -8,6 +8,7 @@ import DeviceDetector from '../DeviceDetector';
 import Router from '../Router';
 import createStore from '../../store';
 import theme from './theme';
+import FiltersContextProvider from '../FiltersContextProvider';
 
 const { store } = createStore();
 
@@ -16,7 +17,9 @@ const App = () => {
     <Provider store={store}>
       <DeviceDetector />
       <MuiThemeProvider theme={theme}>
-        <Router />
+        <FiltersContextProvider>
+          <Router />
+        </FiltersContextProvider>
       </MuiThemeProvider>
     </Provider>
   );
