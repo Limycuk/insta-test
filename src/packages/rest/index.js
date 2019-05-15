@@ -1,5 +1,3 @@
-import Follower from './api/Follower';
+import api from './api';
 
-export default {
-  Follower,
-};
+export default api;

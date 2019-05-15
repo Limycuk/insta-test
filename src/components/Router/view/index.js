@@ -10,7 +10,7 @@ const Router = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Fragment>
         <Route exact path="/" component={Home} />
-        <Route exact path="/follower-likes/:username" component={FollowerLikes} />
+        <Route path="/follower-likes/:username/:tab?" component={FollowerLikes} />
       </Fragment>
     </BrowserRouter>
   );

@@ -11,7 +11,7 @@ export default (username) => {
     }).then(({ follower }) => {
       setFollower(follower);
     });
-  });
+  }, []);
 
   return follower;
 };

@@ -24,7 +24,7 @@ const AsyncImageContainer = ({ imageProps }) => {
     };
 
     img.src = imageProps.src;
-  });
+  }, []);
 
   const props = {
     isLoading: localImageProps === null,

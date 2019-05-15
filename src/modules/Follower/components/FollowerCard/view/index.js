@@ -46,12 +46,14 @@ const FollowerCard = ({ item, classes }) => {
         </ul>
         <ul className={classes.list}>
           <li>
-            <NavLink to={`/follower-likes/${item.username}`}>
+            <NavLink to={`/follower-likes/${item.username}/likes`}>
               <b>{item.likes.count}</b> ({Math.floor(((item.likes.count * 100) / 50) * 100) / 100} %) likes
             </NavLink>
           </li>
           <li>
-            <b>{50 - item.likes.count || '-'}</b> dislikes
+            <NavLink to={`/follower-likes/${item.username}/dislikes`}>
+              <b>{50 - item.likes.count || '-'}</b> dislikes
+            </NavLink>
           </li>
           <li />
         </ul>
