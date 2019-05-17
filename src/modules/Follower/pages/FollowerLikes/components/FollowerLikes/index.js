@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 
 import LikedPosts from '~/modules/Post/pages/LikedPosts';
 import DisLikedPosts from '~/modules/Post/pages/DisLikedPosts';
+import Header from '~/components/Header';
 
 import Tabs from '../Tabs';
 import Follower from '../Follower';
@@ -23,11 +22,7 @@ const FollowerLikesContainer = ({ classes, match }) => {
 
   return (
     <div className={classes.container}>
-      <AppBar position="static">
-        <Toolbar>
-          <div>Сайтик</div>
-        </Toolbar>
-      </AppBar>
+      <Header />
       <Follower username={username} />
       <Paper square className={classes.tabsContainer}>
         <Tabs username={username} tab={tab}>

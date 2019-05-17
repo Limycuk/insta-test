@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 
 import rest from '~/packages/rest';
-import FiltersContext from '~/contexts/filters';
+import DataFiltersContext from '~/modules/DataFilters/contexts/DataFilters';
 
 export default (username) => {
   const [posts, setPosts] = useState([]);
-  const filters = useContext(FiltersContext);
+  const filters = useContext(DataFiltersContext);
 
   useEffect(() => {
     rest.Post.fetchDisLikedPostsByUsername({

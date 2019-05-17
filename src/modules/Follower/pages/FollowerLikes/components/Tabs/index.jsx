@@ -9,8 +9,14 @@ const Tabs = ({ children, username, tab }) => {
   return (
     <div>
       <MaterialTabs value={tab} indicatorColor="primary" textColor="primary" centered>
-        <Tab component={Link} value="likes" to={`/follower-likes/${username}/likes`} label="Liked Posts" />
-        <Tab component={Link} value="dislikes" to={`/follower-likes/${username}/dislikes`} label="Not Liked Posts" />
+        <Tab component={Link} replace value="likes" to={`/follower-likes/${username}/likes`} label="Liked Posts" />
+        <Tab
+          component={Link}
+          replace
+          value="dislikes"
+          to={`/follower-likes/${username}/dislikes`}
+          label="Not Liked Posts"
+        />
       </MaterialTabs>
       {children}
     </div>

@@ -8,7 +8,7 @@ import DeviceDetector from '../DeviceDetector';
 import Router from '../Router';
 import createStore from '../../store';
 import theme from './theme';
-import FiltersContextProvider from '../FiltersContextProvider';
+import FiltersContextProvider from '~/modules/DataFilters/components/FiltersContextProvider';
 
 const { store } = createStore();
 

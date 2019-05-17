@@ -24,6 +24,12 @@ const AsyncImageContainer = ({ imageProps }) => {
     };
 
     img.src = imageProps.src;
+
+    return () => {
+      img.src = '';
+      img.onload = null;
+      img.onerror = null;
+    };
   }, []);
 
   const props = {
