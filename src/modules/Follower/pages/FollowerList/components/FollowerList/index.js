@@ -36,7 +36,7 @@ const FollowerList = ({ classes, changeForm }) => {
 
   const { followers, count, maxCount } = followersData;
 
-  const props = {
+  const propperties = {
     filterListProps: {
       onSubmit: (data) => {
         setFilters(data);
@@ -53,7 +53,7 @@ const FollowerList = ({ classes, changeForm }) => {
       maxCount,
       filters,
       removeFilter: (filterName) => {
-        const { [filterName]: deleted, ...restFilters } = filters;
+        const { [filterName]: deleted, ...restFilters } = filters; // eslint-disable-line
 
         setFilters(restFilters);
         setPage(0);
@@ -76,9 +76,9 @@ const FollowerList = ({ classes, changeForm }) => {
   return (
     <div className={classes.container}>
       <Header />
-      <FilterList {...props.filterListProps} />
-      <FilterValues {...props.filterValuesProps} />
-      <CardList {...props.cardListProps} />
+      <FilterList {...propperties.filterListProps} />
+      <FilterValues {...propperties.filterValuesProps} />
+      <CardList {...propperties.cardListProps} />
     </div>
   );
 };
