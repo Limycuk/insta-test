@@ -16,7 +16,7 @@ const FollowersChart = ({ classes }) => {
     rest.Follower.fetchAvailableFollowerCounters().then((data) => {
       setData(data);
     });
-  });
+  }, []);
 
   if (!data) {
     return null;
