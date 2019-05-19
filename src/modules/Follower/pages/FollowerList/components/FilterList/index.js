@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { compose } from 'redux';
@@ -8,7 +8,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { FormInput, FormSelect, FormAutocomplete } from '~/packages/form';
 import rest from '~/packages/rest';
-import DataFiltersContext from '~/modules/DataFilters/contexts/DataFilters';
 
 import styles from './styles';
 import { FORM_NAME, SORT_OPTIONS } from '../../constants';
@@ -21,11 +20,8 @@ const FilterList = ({ classes, handleSubmit, reset }) => {
     setAutocompleteUsernames([]);
   };
 
-  const filters = useContext(DataFiltersContext);
-
   useEffect(() => {
     rest.Follower.fetchAutocompleteUsernames({
-      filters,
       autocompleteValue,
     }).then((autocompleteUsernames) => {
       setAutocompleteUsernames(autocompleteUsernames);

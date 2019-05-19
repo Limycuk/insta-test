@@ -6,10 +6,11 @@ import getDataByFilters from '../services/getDataByFilters';
 import prepareUsernameSuggestions from '../services/prepareUsernameSuggestions';
 import * as FollowerServices from '../services/Follower';
 import { FOLLOWERS_LIMIT } from '../constants';
+import config from '../config';
 
-export const fetchFollowerByUsername = ({ username, filters }) => {
+export const fetchFollowerByUsername = ({ username }) => {
   return new Promise((resolve) => {
-    const { followers } = getDataByFilters(filters);
+    const { followers } = getDataByFilters(config.filters);
 
     const follower = followers.find((follower) => {
       return follower.username === username;
@@ -21,9 +22,9 @@ export const fetchFollowerByUsername = ({ username, filters }) => {
   });
 };
 
-export const fetchFollowersByFilters = ({ filters, page, followersFilters }) => {
+export const fetchFollowersByFilters = ({ page, followersFilters }) => {
   return new Promise((resolve) => {
-    const { followers } = getDataByFilters(filters);
+    const { followers } = getDataByFilters(config.filters);
 
     const filteredFollowers = FollowerServices.filterFollowers(followers, followersFilters);
     const sortedFollowers = FollowerServices.sortFollowers(filteredFollowers, followersFilters);
@@ -37,9 +38,9 @@ export const fetchFollowersByFilters = ({ filters, page, followersFilters }) => 
   });
 };
 
-export const fetchAutocompleteUsernames = ({ filters, autocompleteValue }) => {
+export const fetchAutocompleteUsernames = ({ autocompleteValue }) => {
   return new Promise((resolve) => {
-    const { followers } = getDataByFilters(filters);
+    const { followers } = getDataByFilters(config.filters);
 
     const preparedUsernameSuggestions = prepareUsernameSuggestions(followers, autocompleteValue);
     resolve(preparedUsernameSuggestions);

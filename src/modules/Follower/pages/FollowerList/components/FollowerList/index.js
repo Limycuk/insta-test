@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
 
 import Header from '~/components/Header';
-import DataFiltersContext from '~/modules/DataFilters/contexts/DataFilters';
 import rest from '~/packages/rest';
 
 import { FORM_NAME } from '../../constants';
@@ -19,12 +18,10 @@ const FollowerList = ({ classes, changeForm }) => {
   const [page, setPage] = useState(0);
   const [followersData, setFollowersData] = useState({ followers: [], count: 0, maxCount: 0 });
 
-  const dataFilters = useContext(DataFiltersContext);
   useEffect(() => {
     rest.Follower.fetchFollowersByFilters({
       followersFilters: filters,
       page,
-      filters: dataFilters,
     }).then(({ followers, count, maxCount }) => {
       setFollowersData({
         followers: followersData.followers.concat(followers),
