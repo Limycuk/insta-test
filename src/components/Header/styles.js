@@ -6,8 +6,7 @@ export default () => ({
   },
   filters: {
     marginLeft: 'auto',
-  },
-  dates: {
-    marginLeft: 20,
+    display: 'flex',
+    flexDirection: 'column',
   },
 });

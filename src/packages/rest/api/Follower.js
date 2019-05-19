@@ -1,5 +1,7 @@
 /* global Promise */
 
+import { EXISTED_DATES } from '~/modules/DataFilters/constants';
+
 import getDataByFilters from '../services/getDataByFilters';
 import prepareUsernameSuggestions from '../services/prepareUsernameSuggestions';
 import * as FollowerServices from '../services/Follower';
@@ -41,5 +43,17 @@ export const fetchAutocompleteUsernames = ({ filters, autocompleteValue }) => {
 
     const preparedUsernameSuggestions = prepareUsernameSuggestions(followers, autocompleteValue);
     resolve(preparedUsernameSuggestions);
+  });
+};
+
+export const fetchAvailableFollowerCounters = () => {
+  return new Promise((resolve) => {
+    const data = EXISTED_DATES.reduce((memo, item) => {
+      const { followers } = getDataByFilters({ type: 'single', dates: [item] });
+      memo[item] = followers.length;
+      return memo;
+    }, {});
+
+    resolve(data);
   });
 };

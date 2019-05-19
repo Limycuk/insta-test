@@ -21,14 +21,12 @@ const Header = ({ classes, filters }) => {
           </Link>
         </div>
         <div className={classes.filters}>
-          <div>
-            <span>
-              Тип:&nbsp;<b>{getMappedType(filters.type)}</b>
-            </span>
-            <span className={classes.dates}>
-              Источник дат:&nbsp;<b>{filters.dates.join(' - ')}</b>
-            </span>
-          </div>
+          <span>
+            Тип:&nbsp;<b>{getMappedType(filters.type)}</b>
+          </span>
+          <span>
+            Источник дат:&nbsp;<b>{filters.dates.join(' - ')}</b>
+          </span>
         </div>
       </Toolbar>
     </AppBar>
