@@ -16,6 +16,7 @@ const FormSelect = ({
   input: { value, onChange, name },
   meta: { submitFailed, error },
   isFullWidth,
+  isDisabled,
   label,
   className,
   options,
@@ -25,7 +26,7 @@ const FormSelect = ({
   const OptionComponent = isNativeSelect ? NativeOption : MenuItem;
 
   return (
-    <FormControl className={containerClasses} fullWidth={isFullWidth}>
+    <FormControl className={containerClasses} fullWidth={isFullWidth} disabled={isDisabled}>
       <InputLabel htmlFor={name} shrink error={Boolean(submitFailed && error)}>
         {label}
       </InputLabel>
@@ -36,6 +37,7 @@ const FormSelect = ({
         inputProps={{
           name,
           id: name,
+          disabled: isDisabled,
         }}
       >
         <OptionComponent value="">&nbsp;</OptionComponent>
@@ -68,11 +70,13 @@ FormSelect.propTypes = {
   ).isRequired,
   className: PropTypes.string,
   isFullWidth: PropTypes.bool.isRequired,
+  isDisabled: PropTypes.bool,
   isNativeSelect: PropTypes.bool.isRequired,
 };
 
 FormSelect.defaultProps = {
   isFullWidth: true,
+  isDisabled: false,
 };
 
 export default withStyles(styles)(FormSelect);

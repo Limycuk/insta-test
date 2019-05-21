@@ -1,5 +1,17 @@
 import { handleActions } from 'redux-actions';
 
-const defaultState = 'single';
+import * as filterActions from '../actions';
+import { SINGLE_TYPE } from '../constants';
 
-export default handleActions({}, defaultState);
+const defaultState = SINGLE_TYPE;
+
+export default handleActions(
+  {
+    [filterActions.changeFilters]: (state, action) => {
+      const { type } = action.payload;
+
+      return type;
+    },
+  },
+  defaultState,
+);

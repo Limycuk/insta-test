@@ -6,7 +6,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 
-import getMappedType from '~/modules/DataFilters/services/getMappedType';
+import getLabelByValue from '~/modules/DataFilters/services/getLabelByValue';
+import { EXISTED_TYPES, EXISTED_DATES } from '~/modules/DataFilters/constants';
 
 import styles from './styles';
 import connect from './connect';
@@ -22,10 +23,10 @@ const Header = ({ classes, filters }) => {
         </div>
         <div className={classes.filters}>
           <span>
-            Тип:&nbsp;<b>{getMappedType(filters.type)}</b>
+            Тип:&nbsp;<b>{getLabelByValue(EXISTED_TYPES, filters.type)}</b>
           </span>
           <span>
-            Источник дат:&nbsp;<b>{filters.dates.join(' - ')}</b>
+            Источник дат:&nbsp;<b>{filters.dates.map((date) => getLabelByValue(EXISTED_DATES, date)).join(' - ')}</b>
           </span>
         </div>
       </Toolbar>

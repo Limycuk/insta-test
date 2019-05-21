@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import * as filtersSelectors from '~/modules/DataFilters/selectors';
+import * as dataFiltersSelectors from '~/modules/DataFilters/selectors';
 
 const mapStateToProps = (state) => {
   return {
-    filters: filtersSelectors.getFilters(state),
+    filters: dataFiltersSelectors.getFilters(state),
   };
 };
 

@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
-
-import { withStyles } from '@material-ui/core/styles';
 
 import rest from '~/packages/rest';
 
-import styles from './styles';
 import getYAxeLimits from './services/getYAxeLimits';
 
-const FollowersChart = ({ classes }) => {
+const FollowersChart = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -64,8 +60,4 @@ const FollowersChart = ({ classes }) => {
   return <Line data={followersChart} options={options} />;
 };
 
-FollowersChart.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(FollowersChart);
+export default FollowersChart;

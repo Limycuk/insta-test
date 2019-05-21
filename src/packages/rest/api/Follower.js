@@ -50,8 +50,8 @@ export const fetchAutocompleteUsernames = ({ autocompleteValue }) => {
 export const fetchAvailableFollowerCounters = () => {
   return new Promise((resolve) => {
     const data = EXISTED_DATES.reduce((memo, item) => {
-      const { followers } = getDataByFilters({ type: 'single', dates: [item] });
-      memo[item] = followers.length;
+      const { followers } = getDataByFilters({ type: 'single', dates: [item.value] });
+      memo[item.label] = followers.length;
       return memo;
     }, {});
 
