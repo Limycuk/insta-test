@@ -1,8 +1,10 @@
 import followers20190130 from '../data/2019-01-30/5-full-followers-list-with-likes.json';
 import followers20190515 from '../data/2019-05-15/5-full-followers-list-with-likes.json';
+import followers20190522 from '../data/2019-05-22/5-full-followers-list-with-likes.json';
 
 import posts20190130 from '../data/2019-01-30/4-posts-list-with-likes.json';
 import posts20190515 from '../data/2019-05-15/4-posts-list-with-likes.json';
+import posts20190522 from '../data/2019-05-22/4-posts-list-with-likes.json';
 
 const getDataByDate = (date) => {
   switch (date) {
@@ -16,6 +18,12 @@ const getDataByDate = (date) => {
       return {
         followers: followers20190515,
         posts: posts20190515,
+      };
+    }
+    case '2019-05-22': {
+      return {
+        followers: followers20190522,
+        posts: posts20190522,
       };
     }
   }

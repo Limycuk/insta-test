@@ -9,6 +9,10 @@ export const EXISTED_DATES = [
     value: '2019-05-15',
     label: '15/05/2019',
   },
+  {
+    value: '2019-05-22',
+    label: '22/05/2019',
+  },
 ];
 
 export const SINGLE_TYPE = 'single';
