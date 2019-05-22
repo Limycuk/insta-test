@@ -36,8 +36,8 @@ export default ({ type, dates }) => {
     const fromData = getDataByDate(dates[0]);
     const toData = getDataByDate(dates[1]);
 
-    const fromFollowerUsernames = fromData.followers.map((follower) => follower.username);
-    const newFollowers = toData.followers.filter((item) => !fromFollowerUsernames.includes(item.username));
+    const fromFollowerIds = fromData.followers.map((follower) => follower.id);
+    const newFollowers = toData.followers.filter((item) => !fromFollowerIds.includes(item.id));
 
     return {
       followers: newFollowers,
@@ -47,8 +47,8 @@ export default ({ type, dates }) => {
     const fromData = getDataByDate(dates[0]);
     const toData = getDataByDate(dates[1]);
 
-    const toFollowerUsernames = toData.followers.map((follower) => follower.username);
-    const oldFollowers = fromData.followers.filter((item) => !toFollowerUsernames.includes(item.username));
+    const toFollowerIds = toData.followers.map((follower) => follower.id);
+    const oldFollowers = fromData.followers.filter((item) => !toFollowerIds.includes(item.id));
 
     return {
       followers: oldFollowers,
