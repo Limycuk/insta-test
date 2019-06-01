@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
@@ -12,6 +13,7 @@ import MailIcon from '@material-ui/icons/Mail';
 
 import useStyles from './styles';
 import connect from './connect';
+import { LEFT_BAR_LINKS } from './constants';
 
 const LeftDrawer = ({ isOpenLeftMenu, appActions }) => {
   const classes = useStyles();
@@ -20,10 +22,12 @@ const LeftDrawer = ({ isOpenLeftMenu, appActions }) => {
     <Drawer open={isOpenLeftMenu} onClose={appActions.toggleLeftDrawer}>
       <div className={classes.list} role="presentation" onClick={appActions.toggleLeftDrawer}>
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          {LEFT_BAR_LINKS.map((item) => (
+            <ListItem button key={item.link} component={Link} to={item.link}>
+              <ListItemIcon>
+                <item.Icon />
+              </ListItemIcon>
+              <ListItemText primary={item.label} />
             </ListItem>
           ))}
         </List>
