@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 
 import rest from '~/packages/rest';
 
-import getYAxeLimits from './services/getYAxeLimits';
+import getYAxeLimits from '../../services/getYAxeLimits';
 
 const FollowersChart = () => {
   const [data, setData] = useState(null);

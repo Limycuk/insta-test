@@ -4,18 +4,30 @@ import { Link } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import getLabelByValue from '~/modules/DataFilters/services/getLabelByValue';
 import { EXISTED_TYPES, EXISTED_DATES } from '~/modules/DataFilters/constants';
 
-import styles from './styles';
+import useStyles from './styles';
 import connect from './connect';
 
-const Header = ({ classes, filters }) => {
+const Header = ({ filters, appActions }) => {
+  const classes = useStyles();
+
   return (
     <AppBar position="static">
       <Toolbar>
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="Menu"
+          onClick={appActions.toggleLeftDrawer}
+        >
+          <MenuIcon />
+        </IconButton>
         <div>
           <Link to="/" className={classes.logo}>
             Сайтик
@@ -35,11 +47,13 @@ const Header = ({ classes, filters }) => {
 };
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
   filters: PropTypes.shape({
     type: PropTypes.string.isRequired,
     dates: PropTypes.array.isRequired,
   }).isRequired,
+  appActions: PropTypes.shape({
+    toggleLeftDrawer: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-export default connect(withStyles(styles)(Header));
+export default connect(Header);

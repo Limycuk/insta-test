@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import { withStyles } from '@material-ui/core/styles';
 
 import Header from '~/components/Header';
-import FollowersChart from '~/modules/Follower/components/FollowersChart';
 import DataFiltersForm from '~/modules/DataFilters/components/DataFiltersForm';
 
-import styles from './styles';
+import FollowersChart from '../FollowersChart';
+import useStyles from './styles';
 
-const Home = ({ classes }) => {
+const Home = () => {
+  const classes = useStyles();
+
   return (
     <div className={classes.container}>
       <Header />
@@ -23,8 +22,4 @@ const Home = ({ classes }) => {
   );
 };
 
-Home.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Home);
+export default Home;

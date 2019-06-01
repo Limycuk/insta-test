@@ -1,4 +1,6 @@
-export default () => ({
+import { makeStyles } from '@material-ui/styles';
+
+export default makeStyles(() => ({
   container: {},
   logo: {
     color: '#ffffff',
@@ -9,4 +11,4 @@ export default () => ({
     display: 'flex',
     flexDirection: 'column',
   },
-});
+}));

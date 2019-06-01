@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as dataFiltersSelectors from '~/modules/DataFilters/selectors';
 import * as appActions from '~/actions/app';
+import * as appSelectors from '~/selectors/app';
 
 const mapStateToProps = (state) => {
   return {
-    filters: dataFiltersSelectors.getFilters(state),
+    isOpenLeftMenu: appSelectors.getIsOpenLeftMenu(state),
   };
 };
 
