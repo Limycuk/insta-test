@@ -22,7 +22,18 @@ const LeftDrawer = ({ isOpenLeftMenu, appActions }) => {
     <Drawer open={isOpenLeftMenu} onClose={appActions.toggleLeftDrawer}>
       <div className={classes.list} role="presentation" onClick={appActions.toggleLeftDrawer}>
         <List>
-          {LEFT_BAR_LINKS.map((item) => (
+          {LEFT_BAR_LINKS.main.map((item) => (
+            <ListItem button key={item.link} component={Link} to={item.link}>
+              <ListItemIcon>
+                <item.Icon />
+              </ListItemIcon>
+              <ListItemText primary={item.label} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {LEFT_BAR_LINKS.statistics.map((item) => (
             <ListItem button key={item.link} component={Link} to={item.link}>
               <ListItemIcon>
                 <item.Icon />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
 
-import PostCard from '~/modules/Post/components/PostCard';
+import PreviewPostCard from '~/modules/Post/components/PreviewPostCard';
 
 import styles from './styles';
 import getDisLikedPostsByUsername from './hooks/getDisLikedPostsByUsername';
@@ -16,7 +16,7 @@ const LikedPosts = ({ classes, match }) => {
   return (
     <div className={classes.container}>
       {posts.map((post) => {
-        return <PostCard key={post.shortcode} post={post} />;
+        return <PreviewPostCard key={post.shortcode} post={post} />;
       })}
     </div>
   );

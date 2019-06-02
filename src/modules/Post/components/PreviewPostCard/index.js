@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import MaterialCard from '@material-ui/core/Card';
-import { withStyles } from '@material-ui/core/styles';
 
 import { AsyncImage } from '~/packages/UI';
 
-import styles from './styles';
+import useStyles from './styles';
 
-const PostCard = ({ post, classes }) => {
+const PreviewPostCard = ({ post }) => {
+  const classes = useStyles();
+
   const imageProps = {
     src: 'https://instagram.com/p/' + post.shortcode + '/media/?size=t',
     alt: post.id,
@@ -29,13 +30,12 @@ const PostCard = ({ post, classes }) => {
   );
 };
 
-PostCard.propTypes = {
+PreviewPostCard.propTypes = {
   post: PropTypes.shape({
     display_url: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     shortcode: PropTypes.string.isRequired,
   }).isRequired,
-  classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(React.memo(PostCard));
+export default React.memo(PreviewPostCard);
