@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b786c6d1664291c3b10a",
+    "revision": "541e16c0b66bd608a7f7",
     "url": "/insta-test/static/css/main.a2c6f863.chunk.css"
   },
   {
-    "revision": "b786c6d1664291c3b10a",
-    "url": "/insta-test/static/js/main.b786c6d1.chunk.js"
+    "revision": "541e16c0b66bd608a7f7",
+    "url": "/insta-test/static/js/main.541e16c0.chunk.js"
   },
   {
     "revision": "d040c8fac782ec833942",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/insta-test/static/media/not-available.baef09ca.jpg"
   },
   {
-    "revision": "bbfe695c8b64432d9d151fd757d9e400",
+    "revision": "4e8bf025d219037e599684636b81b6f3",
     "url": "/insta-test/index.html"
   }
 ];
